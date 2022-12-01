@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <g id="circleSquare">
+            <rect x="0" y="0" height="20" width="20" />
+            <circle cx="10" cy="10" r="5" fill="white" />
+        </g>
+
+        <g id="diagCircleSquare">
+            <polygon points="10,0 0,10 10,20 20,10" />
+            <circle cx="10" cy="10" r="5" fill="white" />
+        </g>
+
+        <g id="line">
+            <use href="#circleSquare" x="0" />
+            <use href="#diagCircleSquare" x="20" />
+            <use href="#circleSquare" x="40" />
+            <use href="#diagCircleSquare" x="60" />
+            <use href="#circleSquare" x="80" />
+        </g>
+
+        <g id="altLine">
+            <use href="#circleSquare" x="0" />
+            <use href="#circleSquare" x="20" />
+            <use href="#circleSquare" x="40" />
+            <use href="#circleSquare" x="60" />
+            <use href="#circleSquare" x="80" />
+        </g>
+
+        <g id="patch0">
+            <use href="#line" y="0" />
+            <use href="#altLine" y="20" />
+            <use href="#line" y="40" />
+            <use href="#altLine" y="60" />
+            <use href="#line" y="80" />
+        </g>
+    </defs>
+
+    <use href="#patch0" fill="red" />
+</svg>

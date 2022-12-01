@@ -1,0 +1,73 @@
+# Networks - Lecture 9:00 22/11/22
+
+### Cables
+
+- Different types of media can all transmit the same data
+- Cables are in layer 1 of the OSI model
+- There are 3 different types of cabling:
+    - Twisted-pair cabling
+    - Coaxial cabling
+    - Fibre-optic cabling
+- Wireless communication such as:
+    - Satellite Comms
+    - Radar
+    - Cellular
+    - GPS
+    - Infrared
+    - WLAN (Wi-Fi)
+    - Bluetooth
+- In a wired network, there is usually a networking rack on each floor, that contains a patch panel or switch, which all of the network ports on that floor are connected to
+- The network designer has to decide which sort of media to use for each connection, depending upon
+    - The required bandwidth (including future growth)
+    - The level of electrical interference
+    - The maximum length of cabling that will be needed
+    - Cost of the media
+- Unshielded twisted-pair cables
+    - The least expensive type of media
+    - Can be used up to 100m
+    - Data capacity defined by EIA/TIA 568
+    - Cat3 supports up to 10Mbps
+    - Cat4 20Mbps
+    - Cat5 100Mbps
+    - Cat5e, Cat6, Cat6a and above are used for 1000Mbps and above
+    - A UTP cable consists of 8 conductors twisted into 4 pairs
+    - They are terminated in an RJ-45 connector
+- Multiplexing can be used to combine multiple signals to be sent across one physical medium
+- This can be used to reduce the number of cables needed
+- Cat6 cabling
+    - The newest type of UTP cabling
+    - There are few differences between Cat6 and Cat5e, mostly increasing the quality of signal
+    - There are 2 forms of Cat6
+        - UTP or ScTP (Screened Twisted Pair)
+        - ScTP has an additional layer of metallic foil to improve its resilience to interference
+        - Cat7 and Cat8 are SSTP (Screen Shielded Twisted Pair) or SFTP (Screened Foiled Twisted Pair)
+- Coaxial cabling
+    - Low noise (low error rate)
+    - Used to be used in a variety of applications
+        - In IBM networks
+        - In early ethernet (limited to 10Mbps)
+    - The shielding may include multiple layers of foil or braid
+- Fibre-Optic cabling
+    - Used for extremely high bandwidths
+        - Up to multiple Terabits per second, if using high-grade fibre
+        - Many times more bandwidth than typical twisted-pair cabling
+    - Typically formed of two individual fibres, each of which transmits only in one direction
+    - They need to convert the electrical signals to optical signals and back
+    - Not susceptible to electromagnetic interference as signals are sent as light, not electrical signals
+    - Very thin glass strands
+        - Multimode fibre is on the order of 50 microns
+        - Singlemode fibre is on the order of 10 microns
+    - The actual fibre cabling costs roughly the same as high-grade twisted pair cabling, but the connectors needed on either end are rather expensive, depending upon the type of connector, and the device it's connecting to
+    - Media converters are needed on each end of the fibre cable, and depending upon the device it's connecting to, and the bandwidth needed, they can be rather expensive
+- Wireless communication
+    - Television and Radio
+    - Satellite Comms
+    - Radar
+    - Mobile Telephone System (Cellular Communication)
+    - GPS (Global Positioning System)
+    - Infrared Communication (needs line of sight and has low bandwidth)
+    - WLAN (Wi-Fi) - IEEE 802.11
+    - Bluetooth
+    - Cordless landline phones
+    - RFID (Radio Frequency Identification)
+    - NFC (Near Field Communication)

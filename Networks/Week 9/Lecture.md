@@ -1,0 +1,52 @@
+# Networks - OL Lecture 09:00 29/11/22
+
+### Communication Circuit Design
+
+- Things to consider when designing a network:
+    - What is the maximum data rate needed
+    - What is the maximum length a single run of cable is required to be
+    - Could there be an issue with electrical interference
+    - What constraints are there with the cable runs
+        - Listed buildings
+        - Client requirements
+        - etc
+    - What are the major costs associated with the selected medium
+    - What medium is the external connection (e.g. broadband, fibre, etc)
+- Dial-up
+    - Dial-up is available in two forms
+        - Analogue (Mostly legacy, not everywhere)
+        - Digital
+    - Analogue links require a digital-to-analogue modem - this converts the digital signals from your computer to analogue signals
+    - Digital links require a digital-to-digital modem - this converts the digital signals from your computer to a different digital signal to be sent over the phone line
+- Modulation
+    - Modulation converts a digital signal into an analogue signal, which can be sent across an analogue connection
+    - Demodulation converts the analogue signal back into a digital signal, which can be used by a computer
+    - Modem stands for **Mo**dulation **dem**odulation
+    - Standard modem speeds are as such:
+        - V.34 at 28.8 or 33.6 kbps
+        - V.90 at 56 kbps
+        - V.92 allows higher-speed connections and the ability to accept an incoming call
+- Reasons to switch to digital
+    - Computers are inherently digital, so easier to convert to a digital communication standard
+    - Higher data rates are available
+    - Easier to switch
+    - Better error rate
+        - Noise is not amplified along the line
+- Digital telephone communication channels are available
+    - Each channel communicates at either 56 or 64 kbps
+    - These channels are then multiplexed (combined together) to create higher data rate connections
+- Problems with E1/T1 and T3/E3 systems
+    - T1 is used in the US and Japan but is incompatible with E1 which is used in Europe and the rest of the world
+    - It is complicated to add or remove a channel to convert between the two
+    - There is a need for higher bandwidth
+    - A new standard is needed
+- SONET/SDH
+    - Synchronous Optical Network (SONET) is a North American standard
+        - Works in multiples of 51.84 Mbps
+        - STS-3 supports triple the bandwidth (155.52 Mbps)
+        - Multiples of 4 up to 40 Gbps
+    - Synchronous Digital Hierarchy (SDH) is an international standard
+        - Works in multiples of 155 Mbps
+    - A very resilient form of SONET and SDH is the dual ring, where there is a ring in both directions
+        - If a cable is cut or goes down, the nodes at the ends reroute the data back along the ring in the other direction
+        - This recovery happens in 50 milliseconds

@@ -1,0 +1,25 @@
+p {
+    font-family: 'Comic Sans MS';
+    background: black;
+    color: #8653E3;
+    border: 0.25em dotted grey;
+    padding: 0.5em;
+}
+
+header {
+    background: black;
+    color: white;
+}
+
+#p2 {
+    border: 0.5em solid grey;
+}
+
+.important {
+    font-style: italic;
+    color:red;
+}
+
+.cool {
+    font-weight: bold;
+}

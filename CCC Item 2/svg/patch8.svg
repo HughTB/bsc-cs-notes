@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <g id="boxOBoxes">
+            <rect x="0" y="0" width="5" height="20" />
+            <rect x="5" y="0" width="5" height="20" fill="none" />
+            <rect x="10" y="0" width="5" height="20" />
+            <rect x="15" y="0" width="5" height="20" fill="none" />
+        </g>
+
+        <g id="line">
+            <use href="#boxOBoxes" x="0" />
+            <use href="#boxOBoxes" transform="rotate(90)" y="-40" />
+            <use href="#boxOBoxes" x="40" />
+            <use href="#boxOBoxes" transform="rotate(90)" y="-80" />
+            <use href="#boxOBoxes" x="80" />
+        </g>
+
+        <g id="altLine">
+            <use href="#boxOBoxes" transform="rotate(-90)" x="-20" y="40" />
+            <use href="#boxOBoxes" transform="rotate(180)" x="-40" y="-20" />
+            <use href="#boxOBoxes" transform="rotate(-90)" x="-20" y="0" />
+            <use href="#boxOBoxes" transform="rotate(180)" x="-80" y="-20" />
+            <use href="#boxOBoxes" transform="rotate(-90)" x="-20" y="80" />
+        </g>
+
+        <g id="patch8">
+            <use href="#line" y="0" />
+            <use href="#altLine" y="20" />
+            <use href="#line" y="40" />
+            <use href="#altLine" y="60" />
+            <use href="#line" y="80" />
+        </g>
+    </defs>
+
+    <use href="#patch8" fill="red" stroke="black" stroke-width="0.5" />
+</svg>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <g id="doubleTri">
+            <polygon points="0,0 10,10 20,0" />
+            <polygon points="0,10 10,20 20,10" />
+        </g>
+
+        <g id="line">
+            <use href="#doubleTri" x="0" />
+            <circle cx="30" cy="10" r="10" />
+            <use href="#doubleTri" x="40" />
+            <circle cx="70" cy="10" r="10" />
+            <use href="#doubleTri" x="80" />
+        </g>
+
+        <g id="altLine">
+            <circle cx="10" cy="10" r="10" />
+            <use href="#doubleTri" transform="rotate(-90)" x="-20" y="20"/>
+            <circle cx="50" cy="10" r="10" />
+            <use href="#doubleTri" transform="rotate(-90)" x="-20" y="60"/>
+            <circle cx="90" cy="10" r="10" />
+        </g>
+
+        <g id="patch7">
+            <use href="#line" y="0" />
+            <use href="#altLine" y="20" />
+            <use href="#line" y="40" />
+            <use href="#altLine" y="60" />
+            <use href="#line" y="80" />
+        </g>
+    </defs>
+
+    <use href="#patch7" fill="red" />
+</svg>

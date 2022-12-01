@@ -1,0 +1,45 @@
+h1 {
+    font-family: sans-serif;
+}
+
+svg, img {
+    outline-style: dashed;
+    outline-width: 1px;
+}
+
+@keyframes moveRoad {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(-50%, 0); }
+}
+
+@keyframes moveSecondCar {
+    0% { transform: scale(-1) translate(-120%, 0); }
+    100% {transform: scale(-1) translate(0%, 0); }
+}
+
+@keyframes spinTheDell {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+#road {
+    animation: moveRoad 1s linear infinite;
+}
+
+#taxi {
+    fill: #edb55d;
+}
+
+#secondcar {
+    fill: #a82b18;
+    animation: moveSecondCar 1s linear infinite;
+}
+
+#patch0 {
+    fill: red;
+}
+
+#dellLogo {
+    animation: spinTheDell 5s ease-out infinite;
+    transform-origin: 50% 50%;
+}

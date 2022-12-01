@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<title>HughTB - CCC SVG</title>
+<link rel="stylesheet" href="style.css">
+
+<h1>SVG Moment</h1>
+
+<img class="patch" src="patch0.svg" height="200" width="200">
+<img class="patch" src="patch1.svg" height="200" width="200">
+<img class="patch" src="patch2.svg" height="200" width="200">
+<img class="patch" src="patch3.svg" height="200" width="200">
+<img class="patch" src="patch4.svg" height="200" width="200">
+<img class="patch" src="patch5.svg" height="200" width="200">
+<img class="patch" src="patch6.svg" height="200" width="200">
+<img class="patch" src="patch7.svg" height="200" width="200">
+<img class="patch" src="patch8.svg" height="200" width="200">
+<img class="patch" src="patch9.svg" height="200" width="200">
+
+<svg height="200" width="200" viewBox="0 0 100 100">
+    <defs>
+        <g id="road">
+            <rect x="0" y="0" width="150" height="50" fill="#333333" />
+            <rect x="0" y="23" width="25" height="4" fill="#FFFFFF" />
+            <rect x="50" y="23" width="25" height="4" fill="#FFFFFF" />
+            <rect x="100" y="23" width="25" height="4" fill="#FFFFFF" />
+        </g>
+
+        <g id="car">
+            <rect x="0" y="0" width="20" height="10"/> 
+            <rect x="10" y="1" width="4" height="8" fill="#2b8da6" />
+            <rect x="2" y="1" width="2" height="8" fill="#2b8da6" />
+        </g>
+    </defs>
+    
+
+    <use href="#road" y="25" />
+    <use id="taxi" href="#car" x="10" y="30" />
+    <use id="secondcar" href="#car" y="-70" />
+</svg>
+
+<svg height="200" width="200" viewBox="0 0 100 100">
+    <defs>
+        <path id="d" d="M0,0 0,20 5,20 C20,20 20,0 5,0 z" fill="none" stroke="black" stroke-width="5" />
+
+        <polygon id="e" points="0,0 0,20 20,20 20,16 6,16 6,12 20,12 20,8 6,8 6,4 20,4 20,0" transform="rotate(-45)"/>
+
+        <polygon id="l" points="0,0 0,25 18,25 18,20 5,20 5,0" />
+
+        <g id="dellLogo">
+            <circle cx="50" cy="50" r="48" fill="none" stroke="black" stroke-width="4" />
+            <use href="#d" x="12" y="40"/>            
+            <use href="#e" x="27" y="50" />
+            <use href="#l" x="54" y="37.5" />
+            <use href="#l" x="73" y="37.5" />
+        </g>
+    </defs>
+
+    <use href="#dellLogo" />
+</svg>

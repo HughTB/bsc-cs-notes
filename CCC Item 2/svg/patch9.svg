@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <g id="h">
+            <rect x="0" y="0" width="25" height="25" fill="white" stroke="black" stroke-width="0.5" />
+            <polygon points="0,0 0,25 5,25 5,15 20,15 20,25 25,25 25,0 20,0 20,10 5,10 5,0" />
+        </g>
+
+        <g id="i">
+            <rect x="0" y="0" width="25" height="25" fill="white"  stroke="black" stroke-width="0.5" />
+            <polygon points="0,0 25,0 25,5 15,5 15,20 25,20 25,25 0,25 0,20 10,20 10,5 0,5" />
+        </g>
+
+        <g id="hAlt">
+            <rect x="0" y="0" width="25" height="25"  stroke="black" stroke-width="0.5" />
+            <polygon points="0,0 0,25 5,25 5,15 20,15 20,25 25,25 25,0 20,0 20,10 5,10 5,0" fill="white" />
+        </g>
+
+        <g id="iAlt">
+            <rect x="0" y="0" width="25" height="25"  stroke="black" stroke-width="0.5" />
+            <polygon points="0,0 25,0 25,5 15,5 15,20 25,20 25,25 0,25 0,20 10,20 10,5 0,5" fill="white" />
+        </g>
+
+        <g id="line">
+            <use href="#h" x="0" />
+            <use href="#i" x="25" />
+            <use href="#h" x="50" />
+            <use href="#i" x="75" />
+        </g>
+
+        <g id="altLine">
+            <use href="#hAlt" x="0" />
+            <use href="#iAlt" x="25" />
+            <use href="#hAlt" x="50" />
+            <use href="#iAlt" x="75" />
+        </g>
+
+        <g id="patch9">
+            <use href="#line" y="0" />
+            <use href="#altLine" y="25" />
+            <use href="#line" y="50" />
+            <use href="#altLine" y="75" />
+        </g>
+    </defs>
+
+    <use href="#patch9" fill="red" />
+</svg>

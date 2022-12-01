@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <g id="tri">
+            <polygon points="10,0 0,20 20,20" />
+        </g>
+
+        <g id="halfTri">
+            <polygon points="0,0 0,20 10,20" />
+        </g>
+
+        <g id="halfTriAlt">
+            <polygon points="10,0 0,20 10,20" />
+        </g>
+
+        <g id="line">
+            <use href="#tri" x="0" />
+            <use href="#tri" x="20" />
+            <use href="#tri" x="40" />
+            <use href="#tri" x="60" />
+            <use href="#tri" x="80" />
+        </g>
+
+        <g id="altLine">
+            <use href="#halfTri" x="0" />
+            <use href="#tri" x="10" />
+            <use href="#tri" x="30" />
+            <use href="#tri" x="50" />
+            <use href="#tri" x="70" />
+            <use href="#halfTriAlt" x="90" />
+        </g>
+
+        <g id="patch">
+            <use href="#line" y="0" />
+            <use href="#altLine" y="20" />
+            <use href="#line" y="40" />
+            <use href="#altLine" y="60" />
+            <use href="#line" y="80" />
+        </g>
+    </defs>
+
+    <use href="#patch" fill="red" />
+</svg>

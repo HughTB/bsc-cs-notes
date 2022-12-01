@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <g id="circlesInSquare">
+            <rect x="0" y="0" width="20" height="20" />
+            <circle cx="5" cy="5" r="5" fill="white" />
+            <circle cx="15" cy="5" r="5" fill="white" />
+            <circle cx="5" cy="15" r="5" fill="white" />
+            <circle cx="15" cy="15" r="5" fill="white" />
+        </g>
+
+        <g id="circlesInSquareAlt">
+            <rect x="0" y="0" width="20" height="20" fill="white" />
+            <circle cx="5" cy="5" r="5" />
+            <circle cx="15" cy="5" r="5" />
+            <circle cx="5" cy="15" r="5" />
+            <circle cx="15" cy="15" r="5" />
+        </g>
+
+        <g id="line">
+            <use href="#circlesInSquare" x="0" />
+            <use href="#circlesInSquareAlt" x="20" />
+            <use href="#circlesInSquare" x="40" />
+            <use href="#circlesInSquareAlt" x="60" />
+            <use href="#circlesInSquare" x="80" />
+        </g>
+
+        <g id="lineAlt">
+            <use href="#circlesInSquareAlt" x="0" />
+            <use href="#circlesInSquare" x="20" />
+            <use href="#circlesInSquareAlt" x="40" />
+            <use href="#circlesInSquare" x="60" />
+            <use href="#circlesInSquareAlt" x="80" />
+        </g>
+
+        <g id="patch2">
+            <use href="#line" y="0" />
+            <use href="#lineAlt" y="20" />
+            <use href="#line" y="40" />
+            <use href="#lineAlt" y="60" />
+            <use href="#line" y="80" />
+        </g>
+    </defs>
+
+    <use href="#patch2" fill="red" />
+</svg>
