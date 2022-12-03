@@ -9,3 +9,4 @@ IBM has just unveiled a new quantum computer known as [Osprey](https://newsroom.
 
 ## Encryption algorithms
 - RSA-250 (829 bits) was factored in 2700 core years of a Xeon Gold 6130 CPU [ref](https://web.archive.org/web/20200228234716/https://lists.gforge.inria.fr/pipermail/cado-nfs-discuss/2020-February/001166.html)
+- Quantum computer using Shor's algorithm factorises 15 48% of the time [ref](https://arxiv.org/abs/1202.5707)
