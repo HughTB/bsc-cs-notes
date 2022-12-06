@@ -1,6 +1,4 @@
 # CCC Item 1 Script - Hugh Baldwin 2022
-
-<!-- During their conversation, Max says "lots of people talk about Qubits but I'm not quite sure what they are". So, what is a qubit? Well as the name suggests, it is the quantum equivalent of a bit (qubit meaning quantum-bit). Qubits are used by quantum computers in the same way that a classical computer uses a bit, to store data. Where they differ, however, is that qubits can take advantage of superpositions. -->
   
 During their conversation, Max says "lots of people talk about Qubits but I'm not quite sure what they are". So, what is a qubit? Well as the name suggests, it is the quantum equivalent of a bit (qubit meaning quantum-bit). Similarly to the bits in a classical computer, qubits are used by quantum computers to store data. Where they differ, however, is that qubits can take advantage of superpositions.
 
