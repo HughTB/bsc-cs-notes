@@ -141,3 +141,53 @@ would end up with 0 padding on all sides, as the last term (0) does not have a u
 </svg>
 ```
 Would create a square in the centre, and it would scale correctly to the size of the element after it's styled
+
+# Lecture - 13:00 06/12/22
+
+### Design & the Web
+
+- What is design?
+    - Design can be a noun or a verb
+    - Starting with a clean slate is rare nowadays
+    - Humans have knowledge, aims and expectations, which we can use to make our systems intuitive to use
+- Picking errors are when the user accidentally picks the wrong option because of a bad design
+    - For example, Walkers crisps have the green and blue colours inverted
+    - Picking errors are enabled by bad design
+- Confirmation bias
+    - Where the design seems to confirm to the user that they're doing the correct thing, even if they're not
+    - This is a large problem in sectors such as aviation
+
+### Designing for Humans
+
+- The design should try to abstract away as much of the detail about how the design works
+- For example, the user doesn't need to see how the computer manipulates the data, just what the results are
+  
+- Design Patterns by "the Gang of Four"
+- Model View Controller design pattern
+    - Model
+        - The actual information or device
+        - How will the page be laid out?
+        - What colours will be used?
+        - Will there be dynamic elements, such as collapsible menus
+        - How will the software look on different hardware (e.g. phones rather than a laptop or desktop)
+    - View
+        - How the model is presented to the user
+    - Controller
+        - How the user interacts with the model
+        - Navigational tools to move around the software
+        - Consistency of different pages or tabs
+- You need to think about who the client is, and why they need the website
+    - You need to think about cultural differences between you and the user base
+    - What does the software need to do?
+    - Why do the users need to use your software?
+    - If there is competing software, look at it and see what was done badly and how it could be improved
+    - Balance the user's requirements with what is possible with the technology you're going to use to implement the design
+
+### The design process
+
+- Pencil and Paper
+    - Much easier to create prototypes
+    - If you start with the design software, you start to limit yourself to the capabilities of the software
+    - More likely to throw away bad designs if they've only taken a few minutes to design
+    - Much easier to collaborate on paper
+    - Easier to show multiple designs to users and compare them
