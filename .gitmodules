@@ -1,3 +1,6 @@
 [submodule "Programming Module/Coursework 1"]
 	path = Programming Module/Coursework 1
 	url = git@github.com:HughTB/programming-coursework-item3
+[submodule "CCC Item 2/radio-clock"]
+	path = CCC Item 2/radio-clock
+	url = https://github.com/HughTB/radio-clock
