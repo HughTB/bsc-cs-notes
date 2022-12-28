@@ -138,3 +138,11 @@ INSERT INTO customer (forename,surname,email,phone,address1,town,postcode) VALUE
     ('Edan','Lindsey',null,'(0171) 607 7943','Ap #635-2180 Tellus Road','Ruthin','KB6Z 1PY'),
     ('Lana','Cobb','cobb-lana8075@hotmail.uk',null,'Ap #849-5928 Pellentesque Street','Lancaster','W51 6AD'),
     ('Holmes','Carey',null,'0914 715 2533','636-5909 Sodales St.','Rugby','H1 8WN');
+
+-- Dummy boatyard data (Phone numbers generated using generatedata.com)
+INSERT INTO boatyard (phone,address1,address2,town,postcode) VALUES
+    ('(023) 8018 3735','10 Hazel Rd.',null,'Southampton','SO19 7GB'),
+    ('(023) 8002 8907','12 Belvidere Rd.',null,'Southampton','SO14 5QY'),
+    ('(023) 9002 0480','10 Captains Row','Old Portsmouth','Portsmouth','PO1 2TT'),
+    ('(023) 9085 1649','Unit 2, Pounds Yard',null,'Portsmouth','PO2 8QA'),
+    ('(023) 8049 7165','58 Shore Rd.','Hythe','Southampton','SO45 6HE');
