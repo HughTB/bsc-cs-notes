@@ -48,13 +48,25 @@ ORDER BY s.completed_datetime;
       42 | 16:30 01/11/22 | Engine Overhaul  | Oil change          |    8 | Pearl 62        | Cicero    | Diesel    | Ralph Dorsey   | ralph-dorsey3155@yahoo.com    | 
 */
 
--- Query 3: Get all services performed for a specific customer, including details of the boat, as well as the total work hours spent on each service, e.g. so that an invoice can be created for the work time of any services (assuming that parts will be calculated using the existing parts database)
+-- Query 3: Get all services performed for a specific customer (In this case, the customer with id 4), including the hours of work broken down by service, e.g. so that an invoice can be created for the work time of any services (assuming that parts will be calculated using the existing parts database)
 SELECT s.service_id AS "Service", TO_CHAR(s.completed_datetime, 'HH24:MI DD/MM/YY') AS "Completed", sc.category_title AS "Service Category", s.description AS "Service Description", SUM(ss.work_hours) AS "Work Hours", b.boat_id AS "Boat", b.model AS "Boat Model", b.name AS "Boat Name", CONCAT_WS(' ', c.forename, c.surname) AS "Customer Name"
 FROM service s
 JOIN staff_service ss ON s.service_id = ss.service_id
 JOIN service_category sc ON s.category_id = sc.category_id
 JOIN boat b ON s.boat_id = b.boat_id
 JOIN customer c ON b.owner_id = c.customer_id
-WHERE c.customer_id = 4
-GROUP BY s.service_id, ss.service_id
+WHERE c.customer_id = 32
+AND s.completed_datetime IS NOT NULL
+GROUP BY s.service_id, ss.service_id, sc.category_title, b.boat_id, c.forename, c.surname
 ORDER BY s.completed_datetime;
+
+-- The output is as follows:
+/*
+ Service |   Completed    | Service Category |                                Service Description                                | Work Hours | Boat |   Boat Model    | Boat Name | Customer Name  
+---------+----------------+------------------+-----------------------------------------------------------------------------------+------------+------+-----------------+-----------+----------------
+      54 | 10:30 10/06/21 | Hull Repair      | Fix collision damage                                                              |       80.5 |   14 | Discovery 55    | Vela Vee  | Hayden Mcbride
+      59 | 11:00 10/07/22 | Annual Service   | Full Annual Service (Check fluids, inspect hull, inspect electrical systems, etc) |       20.8 |   10 | Trawler Class A | Soteria   | Hayden Mcbride
+      91 | 16:30 27/10/22 | Engine Overhaul  | Replace engine                                                                    |       44.2 |   10 | Trawler Class A | Soteria   | Hayden Mcbride
+*/
+
+-- Query 4: 
