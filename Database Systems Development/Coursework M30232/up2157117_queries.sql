@@ -47,3 +47,14 @@ ORDER BY s.completed_datetime;
       91 | 16:30 27/10/22 | Engine Overhaul  | Replace engine      |   10 | Trawler Class A | Soteria   | Diesel    | Hayden Mcbride | hayden.mcbride@protonmail.com | (013541) 28515
       42 | 16:30 01/11/22 | Engine Overhaul  | Oil change          |    8 | Pearl 62        | Cicero    | Diesel    | Ralph Dorsey   | ralph-dorsey3155@yahoo.com    | 
 */
+
+-- Query 3: Get all services performed for a specific customer, including details of the boat, as well as the total work hours spent on each service, e.g. so that an invoice can be created for the work time of any services (assuming that parts will be calculated using the existing parts database)
+SELECT s.service_id AS "Service", TO_CHAR(s.completed_datetime, 'HH24:MI DD/MM/YY') AS "Completed", sc.category_title AS "Service Category", s.description AS "Service Description", SUM(ss.work_hours) AS "Work Hours", b.boat_id AS "Boat", b.model AS "Boat Model", b.name AS "Boat Name", CONCAT_WS(' ', c.forename, c.surname) AS "Customer Name"
+FROM service s
+JOIN staff_service ss ON s.service_id = ss.service_id
+JOIN service_category sc ON s.category_id = sc.category_id
+JOIN boat b ON s.boat_id = b.boat_id
+JOIN customer c ON b.owner_id = c.customer_id
+WHERE c.customer_id = 4
+GROUP BY s.service_id, ss.service_id
+ORDER BY s.completed_datetime;
