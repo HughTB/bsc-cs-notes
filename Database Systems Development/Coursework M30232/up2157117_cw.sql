@@ -13,7 +13,8 @@ CREATE TABLE customer(
     address1    VARCHAR(40) NOT NULL,
     address2    VARCHAR(40),
     town        VARCHAR(60),
-    postcode    CHAR(9) NOT NULL
+    postcode    CHAR(9) NOT NULL,
+    CONSTRAINT contact_method CHECK (email IS NOT NULL OR phone IS NOT NULL) -- Make sure every customer has at least one contact method
 );
 
 CREATE TABLE boat(
@@ -57,13 +58,14 @@ CREATE TABLE staff(
     surname     VARCHAR(20) NOT NULL,
     work_email  VARCHAR(254) NOT NULL,
     work_phone  VARCHAR(20),
-    home_email  VARCHAR(254) NOT NULL,
+    home_email  VARCHAR(254),
     home_phone  VARCHAR(20),
     address1    VARCHAR(40) NOT NULL,
     address2    VARCHAR(40),
     town        VARCHAR(60),
     postcode    CHAR(9) NOT NULL,
-    boatyard_id INT NOT NULL REFERENCES boatyard(boatyard_id)
+    boatyard_id INT NOT NULL REFERENCES boatyard(boatyard_id),
+    CONSTRAINT contact_method CHECK (home_email IS NOT NULL OR home_phone IS NOT NULL) -- Make sure every member of staff has at least one home contact method
 );
 
 CREATE TABLE staff_service(
