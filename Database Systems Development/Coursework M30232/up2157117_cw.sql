@@ -154,39 +154,39 @@ INSERT INTO boatyard (phone,address1,address2,town,postcode) VALUES
 -- Dummy staff data (Generated using generatedata.com)
 INSERT INTO staff (forename,surname,work_email,work_phone,home_email,home_phone,address1,town,postcode,boatyard_id) VALUES
 -- Boatyard id 1
-    ('Mia','Thornton','mthornton@solentboats.com','0500 565991','thornton-mia2376@yahoo.com','0845 46 44','367-4573 Sapien Rd.','Bursledon','SO31 3PE',1),
+    ('Mia','Thornton','mthornton@solentboats.com',null,'thornton-mia2376@yahoo.com','0845 46 44','367-4573 Sapien Rd.','Bursledon','SO31 3PE',1),
     ('Tanisha','Dodson','tdodson@solentboats.com','070 1775 1753','tanishadodson@hotmail.org','0954 781 4307','Ap #797-9224 Vel, Road','Southampton','SO15 9FH',1),
-    ('Evelyn','Fernandez','efernandez@solentboats.com','07436 118542','efernandez@outlook.org','0926 216 8835','504-4349 Nec St.','Netley','SO31 3JH',1),
+    ('Evelyn','Fernandez','efernandez@solentboats.com',null,'efernandez@outlook.org','0926 216 8835','504-4349 Nec St.','Netley','SO31 3JH',1),
     ('Dante','Booker','dbooker@solentboats.com','(0141) 865 5384','dbooker7544@icloud.org','0817 884 2015','P.O. Box 328, 5502 Tellus. St.','Eastleigh','SO21 9KF',1),
-    ('Kimberley','Carter','kcarter@solentboats.com','070 8680 8782','carter_kimberley1847@outlook.edu','0348 087 2346','431-7380 Semper St.','Totton','SO40 5UN',1),
+    ('Kimberley','Carter','kcarter@solentboats.com',null,'carter_kimberley1847@outlook.edu','0348 087 2346','431-7380 Semper St.','Totton','SO40 5UN',1),
     ('Tasha','Kirk','tkirk@solentboats.com','(024) 5570 1038','kirk-tasha@yahoo.ca','0845 46 42','P.O. Box 480, 7122 Gravida St.','Bursledon','SO31 7IX',1),
 -- id 2
     ('Byron','Beck','bbeck@solentboats.com','0845 46 40','beck_byron5270@google.org','(016977) 9656','240-2211 Cras St.','Totton','SO40 3WS',2),
     ('Valentine','Mullen','vmullen@solentboats.com','056 1569 2404','mvalentine@outlook.org','070 3335 5513','826-3509 Mollis Street','Netley','SO32 3CU',2),
-    ('Wynne','Travis','wtravis@solentboats.com','0845 46 42','wynnetravis3340@yahoo.ca','070 6729 3241','8071 Massa. Avenue','Netley','SO40 6DS',2),
+    ('Wynne','Travis','wtravis@solentboats.com',null,'wynnetravis3340@yahoo.ca','070 6729 3241','8071 Massa. Avenue','Netley','SO40 6DS',2),
     ('Irma','Bolton','ibolton@solentboats.com','0800 942 0787','bolton.irma8781@icloud.ca','0800 1111','P.O. Box 537, 6796 Nulla Road','Netley','SO12 8XO',2),
-    ('Cherokee','Patrick','cpatrick@solentboats.com','07448 632217','cpatrick1426@hotmail.org','056 1404 5569','6832 At, Avenue','Eastleigh','SO18 4UH',2),
+    ('Cherokee','Patrick','cpatrick@solentboats.com',null,'cpatrick1426@hotmail.org','056 1404 5569','6832 At, Avenue','Eastleigh','SO18 4UH',2),
 -- id 3
     ('Melvin','Garcia','mgarcia@solentboats.com','(025) 7443 1255','garcia-melvin@icloud.couk','0940 312 7163','217-1494 Curabitur Av.','Portsmouth','PO23 6IG',3),
     ('Finn','Sharp','fsharp@solentboats.com','(0116) 683 2750','sharp-finn5181@hotmail.edu','0319 838 2890','P.O. Box 638, 577 Et, Rd.','Portsmouth','PO2 7XM',3),
-    ('Stephen','Justice','sjustice@solentboats.com','0800 1111','justice.stephen@yahoo.edu','070 4710 1413','P.O. Box 904, 7072 Nunc Rd.','Fareham','PO32 6FW',3),
+    ('Stephen','Justice','sjustice@solentboats.com',null,'justice.stephen@yahoo.edu','070 4710 1413','P.O. Box 904, 7072 Nunc Rd.','Fareham','PO32 6FW',3),
     ('Kerry','Woodward','kwoodward@solentboats.com','(023) 1481 5465','woodward-kerry@outlook.org','070 2388 3431','P.O. Box 272, 8772 Nascetur St.','Portsmouth','PO5 1FD',3),
-    ('Kim','Barr','kbarr@solentboats.com','070 8659 7667','kbarr5297@hotmail.org','0942 314 0366','Ap #349-3690 Vitae, Rd.','Fareham','PO13 9MO',3),
-    ('Susan','Craft','scraft@solentboats.com','07232 888856','c_susan@hotmail.net','055 3395 7981','Ap #319-3501 Ligula Avenue','Portsmouth','PO3 5CQ',3),
+    ('Kim','Barr','kbarr@solentboats.com',null,'kbarr5297@hotmail.org','0942 314 0366','Ap #349-3690 Vitae, Rd.','Fareham','PO13 9MO',3),
+    ('Susan','Craft','scraft@solentboats.com',null,'c_susan@hotmail.net','055 3395 7981','Ap #319-3501 Ligula Avenue','Portsmouth','PO3 5CQ',3),
     ('Frances','Trujillo','ftrujillo@solentboats.com','(01044) 28354','f.trujillo2242@aol.edu','(0114) 182 8693','Ap #765-2045 Erat Street','Portsmouth','PO2 1CX',3),
 -- id 4
     ('Mikayla','Patterson','mpatterson@solentboats.com','0362 162 6182','p.mikayla515@aol.edu','(01614) 77535','581-1363 Pretium St.','Portsmouth','PO6 4EP',4),
-    ('Phelan','Baker','pbaker@solentboats.com','(015624) 51143','phelan_baker@hotmail.org','076 5512 3963','277-4645 Magna. Ave','Portsmouth','PO12 2EP',4),
+    ('Phelan','Baker','pbaker@solentboats.com',null,'phelan_baker@hotmail.org','076 5512 3963','277-4645 Magna. Ave','Portsmouth','PO12 2EP',4),
     ('Phillip','Morse','pmorse@solentboats.com','(0151) 831 5552','pmorse2437@hotmail.ca','(0114) 495 6636','313-2191 Orci. St.','Fareham','PO32 6DL',4),
     ('Miriam','Foley','mfoley@solentboats.com','(016977) 6177','m.foley571@outlook.com','(0113) 748 1152','P.O. Box 874, 803 Aliquet. St.','Fareham','PO31 2GH',4),
-    ('Linus','Neal','lneal@solentboats.com','0800 1111','neal.linus@icloud.net','0800 097751','P.O. Box 264, 1691 Morbi Road','Portsmouth','PO7 4WL',4),
+    ('Linus','Neal','lneal@solentboats.com',null,'neal.linus@icloud.net','0800 097751','P.O. Box 264, 1691 Morbi Road','Portsmouth','PO7 4WL',4),
 -- id 5
     ('Amir','Coffey','acoffey@solentboats.com','056 2843 6835','amir_coffey9031@aol.com','0800 323 8126','Ap #184-759 Lorem, Avenue','Totton','SO40 6FR',5),
     ('Kadeem','Glover','kglover@solentboats.com','0500 009263','g-kadeem@google.net','(01721) 49965','3409 Tincidunt St.','Bursledon','SO31 4NF',5),
-    ('Sybil','Rogers','srogers@solentboats.com','(01326) 365433','s_rogers909@protonmail.net','0362 057 0642','Ap #338-8375 Sit Road','Southampton','SO16 9IM',5),
+    ('Sybil','Rogers','srogers@solentboats.com',null,'s_rogers909@protonmail.net','0362 057 0642','Ap #338-8375 Sit Road','Southampton','SO16 9IM',5),
     ('Inga','Preston','ipreston@solentboats.com','076 7241 2428','inga-preston538@yahoo.edu','07624 110750','Ap #483-5448 Erat. Ave','Southampton','SO14 1AI',5),
-    ('Tatum','Bridges','tbridges@solentboats.com','(01026) 21277','bridges.tatum7224@google.com','(0171) 628 0965','781-2599 Sociis Road','Netley','SO23 8GT',5),
-    ('Daniel','Montgomery','dmontgomery@solentboats.com','076 7472 7509','m_daniel4580@yahoo.couk','056 7531 8244','Ap #629-1759 Risus. Road','Eastleigh','SO21 5RC',5),
+    ('Tatum','Bridges','tbridges@solentboats.com',null,'bridges.tatum7224@google.com','(0171) 628 0965','781-2599 Sociis Road','Netley','SO23 8GT',5),
+    ('Daniel','Montgomery','dmontgomery@solentboats.com',null,'m_daniel4580@yahoo.couk','056 7531 8244','Ap #629-1759 Risus. Road','Eastleigh','SO21 5RC',5),
     ('Elaine','Mercado','emercado@solentboats.com','(01413) 47129','e-mercado7272@google.couk','(01764) 58327','P.O. Box 331, 9367 Aliquet Street','Southampton','SO13 1MT',5);
 
 -- Dummy staff role data

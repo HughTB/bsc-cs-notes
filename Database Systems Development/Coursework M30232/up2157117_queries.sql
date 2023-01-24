@@ -8,7 +8,7 @@ WHERE s.scheduled_datetime >= NOW()::TIMESTAMP
 AND s.scheduled_datetime < NOW()::TIMESTAMP +INTERVAL '+90 DAYS'
 ORDER BY s.scheduled_datetime;
 
--- At the time of writing, the output is as follows (This may change, as it is based upon the date the query is run):
+-- At the time of writing (24/01/23), the output is as follows (This may change, as it is based upon the date the query is run):
 /*
  Service |   Scheduled    | Service Category |                                    Description                                    | Boat |     Boat Model     |    Boat Name    |   Customer Name   |         Email Address          |  Phone Number   
 ---------+----------------+------------------+-----------------------------------------------------------------------------------+------+--------------------+-----------------+-------------------+--------------------------------+-----------------
@@ -48,8 +48,8 @@ ORDER BY s.completed_datetime;
       42 | 16:30 01/11/22 | Engine Overhaul  | Oil change          |    8 | Pearl 62        | Cicero    | Diesel    | Ralph Dorsey   | ralph-dorsey3155@yahoo.com    | 
 */
 
--- Query 3: Get all services performed for a specific customer (In this case, the customer with id 4), including the hours of work broken down by service, e.g. so that an invoice can be created for the work time of any services (assuming that parts will be calculated using the existing parts database)
-SELECT s.service_id AS "Service", TO_CHAR(s.completed_datetime, 'HH24:MI DD/MM/YY') AS "Completed", sc.category_title AS "Service Category", s.description AS "Service Description", SUM(ss.work_hours) AS "Work Hours", b.boat_id AS "Boat", b.model AS "Boat Model", b.name AS "Boat Name", CONCAT_WS(' ', c.forename, c.surname) AS "Customer Name"
+-- Query 3: Get all services performed for a specific customer (In this case, the customer with id 4), including the hours of work broken down by service, e.g. so that an invoice can be created for the work time of any services (assuming that the cost of parts will be calculated using the existing parts database)
+SELECT s.service_id AS "Service", TO_CHAR(s.completed_datetime, 'HH24:MI DD/MM/YY') AS "Completed", sc.category_title AS "Service Category", s.description AS "Service Description", SUM(ss.work_hours) AS "Total Work Hours", b.boat_id AS "Boat", b.model AS "Boat Model", b.name AS "Boat Name", CONCAT_WS(' ', c.forename, c.surname) AS "Customer Name"
 FROM service s
 JOIN staff_service ss ON s.service_id = ss.service_id
 JOIN service_category sc ON s.category_id = sc.category_id
@@ -62,11 +62,51 @@ ORDER BY s.completed_datetime;
 
 -- The output is as follows:
 /*
- Service |   Completed    | Service Category |                                Service Description                                | Work Hours | Boat |   Boat Model    | Boat Name | Customer Name  
----------+----------------+------------------+-----------------------------------------------------------------------------------+------------+------+-----------------+-----------+----------------
-      54 | 10:30 10/06/21 | Hull Repair      | Fix collision damage                                                              |       80.5 |   14 | Discovery 55    | Vela Vee  | Hayden Mcbride
-      59 | 11:00 10/07/22 | Annual Service   | Full Annual Service (Check fluids, inspect hull, inspect electrical systems, etc) |       20.8 |   10 | Trawler Class A | Soteria   | Hayden Mcbride
-      91 | 16:30 27/10/22 | Engine Overhaul  | Replace engine                                                                    |       44.2 |   10 | Trawler Class A | Soteria   | Hayden Mcbride
+ Service |   Completed    | Service Category |                                Service Description                                | Total Work Hours | Boat |   Boat Model    | Boat Name | Customer Name  
+---------+----------------+------------------+-----------------------------------------------------------------------------------+------------------+------+-----------------+-----------+----------------
+      54 | 10:30 10/06/21 | Hull Repair      | Fix collision damage                                                              |             80.5 |   14 | Discovery 55    | Vela Vee  | Hayden Mcbride
+      59 | 11:00 10/07/22 | Annual Service   | Full Annual Service (Check fluids, inspect hull, inspect electrical systems, etc) |             20.8 |   10 | Trawler Class A | Soteria   | Hayden Mcbride
+      91 | 16:30 27/10/22 | Engine Overhaul  | Replace engine                                                                    |             44.2 |   10 | Trawler Class A | Soteria   | Hayden Mcbride
 */
 
--- Query 4: 
+-- Query 4: Get all services performed by a specific memeber of staff (In this case, the member of staff with id 8) in the last 3 months, e.g. 
+SELECT s.service_id AS "Service", TO_CHAR(s.completed_datetime, 'HH24:MI DD/MM/YY') AS "Completed", CONCAT_WS(' ', st.forename, st.surname) AS "Staff Name", sc.category_title AS "Service Category", ss.work_hours AS "Work Hours", b.boat_id AS "Boat", b.model AS "Boat Model", b.name AS "Boat Name"
+FROM service s
+JOIN staff_service ss ON s.service_id = ss.service_id
+JOIN staff st ON ss.staff_id = st.staff_id
+JOIN boat b ON s.boat_id = b.boat_id
+JOIN service_category sc ON s.category_id = sc.category_id
+WHERE st.staff_id = 8
+AND s.completed_datetime <= NOW()::TIMESTAMP
+AND s.completed_datetime >= NOW()::TIMESTAMP +INTERVAL '-90 DAYS'
+ORDER BY s.service_id;
+
+-- At the time of writing (24/01/23), the output is as follows (This may change, as it is based upon the date the query is run):
+/*
+ Service |   Completed    |    Staff Name    | Service Category | Work Hours | Boat | Boat Model  |   Boat Name   
+---------+----------------+------------------+------------------+------------+------+-------------+---------------
+       6 | 12:00 21/11/22 | Valentine Mullen | Repainting       |       40.0 |   32 | Dawn 39     | Findhorn
+      47 | 13:30 23/11/22 | Valentine Mullen | Annual Service   |       46.2 |    3 | Oceanis 361 | Walkabout III
+*/
+
+-- Query 5: Find all members of staff with the role of 'General' (Role id 4), including names and contact details, sorted alphabetically by name, e.g. So that an email about optional additional specialisation training can be sent out
+SELECT st.staff_id AS "Staff ID", by.boatyard_id AS "Boatyard", CONCAT_WS(' ', st.forename, st.surname) AS "Name", st.work_email AS "Work Email", st.work_phone AS "Work Phone", r.role_title AS "Role"
+FROM staff st
+JOIN staff_role sr ON st.staff_id = sr.staff_id
+JOIN role r ON sr.role_id = r.role_id
+JOIN boatyard by ON st.boatyard_id = by.boatyard_id
+WHERE r.role_id = 4
+ORDER BY st.surname, st.forename;
+
+-- The output is as follows:
+/*
+ Staff ID | Boatyard |       Name       |        Work Email         |  Work Phone   |  Role   
+----------+----------+------------------+---------------------------+---------------+---------
+       16 |        3 | Kim Barr         | kbarr@solentboats.com     |               | General
+        2 |        1 | Tanisha Dodson   | tdodson@solentboats.com   | 070 1775 1753 | General
+       30 |        5 | Elaine Mercado   | emercado@solentboats.com  | (01413) 47129 | General
+       23 |        4 | Linus Neal       | lneal@solentboats.com     |               | General
+       27 |        5 | Inga Preston     | ipreston@solentboats.com  | 076 7241 2428 | General
+        9 |        2 | Wynne Travis     | wtravis@solentboats.com   |               | General
+       18 |        3 | Frances Trujillo | ftrujillo@solentboats.com | (01044) 28354 | General
+*/
