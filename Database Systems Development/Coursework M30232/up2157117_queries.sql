@@ -28,7 +28,7 @@ ORDER BY s.scheduled_datetime;
       27 | 09:30 14/04/23 | Repainting       | Replace antifouling paint                                                         |    5 | Solaris One 44     | Alcibiades III  | Kellie Greene     |                                | 0800 125633
 */
 
--- Query 2: Get all engine services performed in October or November 2022 on diesel boats, including owner's contact details, e.g. so that affected customers can be contacted in the event that, for example, a batch of contaminated fuel was used during services
+-- Query 2: Get all engine services performed in October or November 2022 on diesel boats, including owner's contact details, e.g. so that affected customers can be contacted in the event that, for example, a batch of contaminated fuel or oil was used during services
 SELECT s.service_id AS "Service", TO_CHAR(s.completed_datetime, 'HH24:MI DD/MM/YY') AS "Completed", sc.category_title AS "Service Category", s.description AS "Service Description", b.boat_id as "Boat", b.model AS "Boat Model", b.name AS "Boat Name", b.fuel_type AS "Fuel Type", CONCAT_WS(' ', c.forename, c.surname) AS "Customer Name", c.email AS "Email Address", c.phone AS "Phone Number"
 FROM service s
 JOIN service_category sc ON s.category_id = sc.category_id
@@ -69,7 +69,7 @@ ORDER BY s.completed_datetime;
       91 | 16:30 27/10/22 | Engine Overhaul  | Replace engine                                                                    |             44.2 |   10 | Trawler Class A | Soteria   | Hayden Mcbride
 */
 
--- Query 4: Get all services performed by a specific memeber of staff (In this case, the member of staff with id 8) in the last 3 months, e.g. 
+-- Query 4: Get all services performed by a specific memeber of staff (In this case, the member of staff with id 8) in the last 3 months, e.g. so that a new employee's work can be checked by a more senior member of staff
 SELECT s.service_id AS "Service", TO_CHAR(s.completed_datetime, 'HH24:MI DD/MM/YY') AS "Completed", CONCAT_WS(' ', st.forename, st.surname) AS "Staff Name", sc.category_title AS "Service Category", ss.work_hours AS "Work Hours", b.boat_id AS "Boat", b.model AS "Boat Model", b.name AS "Boat Name"
 FROM service s
 JOIN staff_service ss ON s.service_id = ss.service_id

@@ -197,11 +197,13 @@ INSERT INTO staff_role (staff_id, role_id) VALUES
     (3, 5),
     (4, 2),
     (5, 3),
+    (5, 5),
     (6, 6),
 -- 2
     (7, 1),
     (7, 3),
     (8, 2),
+    (8, 5),
     (9, 4),
     (10, 5),
     (11, 6),
@@ -218,6 +220,7 @@ INSERT INTO staff_role (staff_id, role_id) VALUES
     (19, 5),
     (20, 2),
     (21, 3),
+    (21, 4),
     (22, 6),
     (23, 4),
 -- 5
