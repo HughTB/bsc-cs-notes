@@ -20,6 +20,16 @@ class ShoppingCart():
     def getTotal(self):
         return self.total
     
+    def setRamOfItem(self, item, newRam):
+        self.total -= self.items[item].getPrice()
+        self.items[item].setRam(newRam)
+        self.total += self.items[item].getPrice()
+
+    def setSsdOfItem(self, item, newSsd):
+        self.total -= self.items[item].getPrice()
+        self.items[item].setSsd(newSsd)
+        self.total += self.items[item].getPrice()       
+
     def __str__(self):
         output = "Shopping cart contains:\n"
 

@@ -17,4 +17,4 @@ class GamingLaptop(Laptop):
             self.price += gpuOptions[newGpu]
 
     def __str__(self):
-        return f"{self.brand} {self.model} {self.ram}GB £{self.price:.2f} {self.gpu}"
+        return f"{self.brand} {self.model} {self.ram}GB {self.gpu} £{self.price:.2f}"

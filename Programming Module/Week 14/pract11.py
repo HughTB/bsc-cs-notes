@@ -5,8 +5,11 @@ from ShoppingCart import *;
 def testLaptop():
     laptop = Laptop("Dell", "XPS", 999.99)
     print("price: £{:.2f}".format(laptop.getPrice()))
+    print("brand:", laptop.getBrand())
     print(laptop)
     laptop.setRam(16)
+    print(laptop)
+    laptop.setRam(32)
     print(laptop)
 
 def testShoppingCart():
@@ -15,6 +18,7 @@ def testShoppingCart():
     laptop2 = Laptop("Lenovo", "ThinkPad", 799.99)
     cart.addItem(laptop1)
     cart.addItem(laptop2)
+    cart.addLaptop("Apple", "MacBook Pro", 1299.99)
     print("getTotal method returns: £{:.2f}".format(cart.getTotal()))
     print(cart)
     items = cart.getItems()
@@ -31,9 +35,4 @@ def testGamingLaptop():
     gamingLaptop.setGpu("AMD Radeon 12GB")
     print(gamingLaptop)
 
-def main():
-    testLaptop()
-    testGamingLaptop()
-    testShoppingCart()
-
-main()
+testLaptop()
