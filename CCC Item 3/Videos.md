@@ -231,3 +231,104 @@
     - Generalises access control based upon the role attribute of users, as well as other attributes of the user or asset and environmental information
     - An authorisation engine is used to determine if access should be granted
     - This can be used to give time-based access control, e.g. for contractors
+
+## Video 3.0 (Cryptography Intro)
+
+### What is cryptography?
+
+- A way of turning *plaintext* (the secret message) into the *ciphertext* (an unreadable version of the message that can be turned back into the plaintext)
+- Encrypting a piece of data links four elements together
+  - The *plaintext*, m
+  - The *ciphertext*, c
+  - The *key*, k
+  - The *algorithm*, E
+- Decrypting is the reverse of this process
+
+### Modern Cryptography
+
+- Modern algorithms follow these principles:
+  1. Large enough *key space* (all possible keys) to resist brute-force attacks
+  2. Resistance to frequency analysis
+  3. Small change in plaintext results in large change in ciphertext
+  4. Security depends only upon the secrecy of the key, and not of the algorithm (Kerckhoff's Principle)
+
+### Cryptographic Algorithms
+
+- There are two types of cryptographic algorithms
+  - *Symmetric* encryption uses the same key to encipher and decipher the message
+    - Can be extremely efficient to encrypt and decrypt, meaning minimal processing time or power
+    - Both sender and receiver must possess the encryption key
+    - If either copy of the key is compromised, messages can be encrypted and decrypted by a third party
+  - *Asymmetric* encryption uses two different but related keys to encipher and decipher the message
+    - If Key A encrypts a message, only Key B can decrypt it
+    - Highest security when one key is used as the private key and the other the public key
+    - Typically used to encrypt the key for a symmetrically encrypted session, rather than the plaintext message
+
+## Video 3.1 (Symmetric Cryptography)
+
+### Caesar Cipher
+
+- Two wheels containing letters of the alphabet
+  - The inner wheel is shifted by a number of positions
+  - Each of the letters of the plaintext is encrypted by matching the plaintext character to the corresponding letter on the inner wheel
+  - To decrypt the message, find the letter of the ciphertext on the inner wheel, and find the corresponding letter on the outer wheel
+  - This is symmetric as both the sender and receiver need to know how many places the alphabet was shifted to encipher or decipher the message
+- This is not a secure message of encryption, as the key space is very small (i.e. 26 possible keys) and it is very easy to exhaustively check each combination
+- This is an example of a *mono-alphabetic* cipher, as any letter will always be encrypted in the same way, regardless of it's position in the message
+- A *poly-alphabetic* cipher uses two or more alphabets to provide better security
+
+### Data Encryption Standard (DES)
+
+- Adopted by NIST in 1976 as a federal standard in the US
+- 64-bit block size, 56-bit key
+- Can be broken on a modern PC in minutes
+- Due to this, Triple-DES (3DES) was used to extend the lifetime, by encrypting each message 3 times with the algorithm
+
+### Advanced Encryption Standard (AES)
+
+- Developed to replace DES / 3DES
+- Approved by NIST in 2001
+- Originally proposed by Rijmen and Daemen as the Rijndael Cipher as part of a competition to design a new, more secure encryption standard, known as AES
+- It won over other algorithms due to it's superior performance and features, despite it's slightly lower security compared to other submissions
+
+### Downsides of Symmetric Key Cryptography
+
+- The main problem is key distribution
+- If we have n parties who need to communicate, we generally need ${n*(n-1)/2}$
+  - When n = 2, we need 1 key
+  - When n = 3, we need 3 keys
+  - When n = 4, we need 6 keys
+  - When n = 5, we need 10 keys
+  - Because of this, a different solution is needed
+
+### The Diffie-Hellman Key Exchange (DH Key Exchange)
+
+- Asymmetric encryption is used to exchange session keys
+  - These session keys are limited-use symmetric keys for short-term communications, allowing two entities to quickly, efficiently and securely exchange data using symmetric encryption
+  - This is more efficient and more secure than using asymmetric encryption for the entire exchange
+- DH Key Exchange is used into a number of standard protocols
+  - TLS / SSL (Transport Layer)
+  - IPSec (Network Layer)
+- and a number of applications
+  - GlobalProtect VPN
+  - Whatsapp
+  - etc
+
+## Video 3.2 (Asymmetric Cryptography)
+
+### Rivest, Shamir and Adleman (RSA)
+
+- Developed by Rivest, Shamir and Adleman in 1978
+- Based on theoretical properties of natural numbers
+- RSA in a nutshell (assuming the message is already in the form of an integer)
+  1. Choose two large prime numbers ${p}$ and ${q}$, and calculate ${n = p * q}$
+  2. From n follow some mathematical steps to calculate the values ${e}$ and ${d}$
+  3. Publish ${n}$ and ${e}$, keep ${d}$ secret and destroy / erase ${p}$ and ${q}$
+  4. Encryption of ${m}$ is now ${c = m^e \mod n}$
+  5. Decryption of ${c}$ is now ${m = c^d \mod n}$
+
+### Elliptic Curves
+
+- Proposed by Koblitz and Miller independently in 1985
+- Uses similar ideas as RSA, but using elliptic curves instead
+- Same complexity as RSA with smaller keys, and therefore more efficient
