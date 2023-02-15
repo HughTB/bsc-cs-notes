@@ -9,3 +9,6 @@
 - The questions in the exam will be randomly arranged
 - 60 total questions, ~20 on each item
 - The Crossover Error Rate (CER) is not necessarily the best sensitivity for a biometric system, as it may be significantly more important for unauthorised users to be rejected every time, than authorised users to be accepted every time
+
+# Security - Lecture 13:00 14/02/23
+
