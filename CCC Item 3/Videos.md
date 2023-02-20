@@ -332,3 +332,126 @@
 - Proposed by Koblitz and Miller independently in 1985
 - Uses similar ideas as RSA, but using elliptic curves instead
 - Same complexity as RSA with smaller keys, and therefore more efficient
+
+## Video 4.0 (Risk Intro)
+
+### Risk
+
+- Component-driven approaches require the risk analyst to assess the three elements of risk
+  - Threat
+  - Vulnerability
+  - Impact
+- Threat is the individual, group or circumstance which causes a given impact to occur
+- The purpose of assessing threats is to improve the assessment of the risk
+
+|Impact / Likelihood|Low|Medium|High|
+|-|-|-|-|
+|High|Med|High|High|
+|Medium|Low|Med|High|
+|Low|Low|Low|Med|
+
+- There are a number of Risk Assessment methods or frameworks
+  - NIST 800-30
+  - ISO/IEC 27005
+  - ISACA COBIT
+  - ISF IRAM 2
+  - HMG Information Assurance Standard 1 2
+  - Octave Allegro
+  - ISACA COBIT 5
+- Each of these will have a different methodology and different categorisation of risks and their impacts, and are used by different companies or agencies depending upon their specific needs
+
+### NIST Cyber Security Framework
+
+## Video 4.1 (Assessing Risk)
+
+### Risk Assessment Steps (BS ISO / IEC 27005)
+
+- Identify (Risk Identification) the following
+  - Assets
+  - Threats
+  - Existing Controls
+  - Vulnerabilities
+  - Consequences
+- Analyse (Risk Assessment) the following
+  - Consequences
+  - Incident Likelihood
+  - Level of Risk Determination
+- Treat (Risk Treatment)
+  - Risk Modification
+  - Risk Retention
+  - Risk Avoidance
+  - Risk Sharing
+- Monitor (Monitoring and Review)
+
+### Qualitative Risk Analysis
+
+- Use scales of qualifying attributes to describe the magnitude of the consequences (e.g. Very Low, Low, Medium, High, Very High)
+- Advantages
+  - Ease of understanding by all relevant personnel
+- Disadvantages
+  - Depends upon the user's choice of where on the scale to place the risk
+- May be used
+  - As initial screening to identify risks that need more detailed analysis
+  - Where this type of analysis is sufficient for making decisions
+  - Where numerical data or resources are inadequate for quantitative analysis
+
+### Quantitative Risk Analysis
+
+- Uses scales of objective numerical values for consequences and likelihood
+- Uses data from a variety of sources
+- Quality of the analysis depends upon the accuracy and completeness of the numerical data
+- Typically uses historical incident data
+- Advantages
+  - Related directly to objective data about the risk
+- Disadvantages
+  - Lacks comparable data on new risks
+  - Inaccurate or missing data could cause incorrect results
+- Uncertainty and variability of the consequences and likelihood should be considered and effectively communicated
+
+### Cost Benefit Analysis
+
+- ${CBA = ALE(prior) - (ALE(post) + ACS)}$
+- ${ALE = SLE \times ARO}$
+- Where
+  - ${CBA}$ = Cost Benefit Analysis
+  - ${ACS}$ = Annualized Cost of Safeguard
+  - ${ALE}$ = Annualized Loss Expectancy
+  - ${SLE}$ = Single Loss Expectancy
+  - ${ARO}$ = Annualized Rate of Occurrence
+
+## Video 4.2 (Controlling and Managing Risk)
+
+### Risk Treatment Options
+
+- Retain / Accept
+  - Tolerate (but do not ignore) this risk
+- Avoid / Terminate
+  - Decide not to do the thing that incurs risk
+- Share / Transfer
+  - Transfer risk via an insurance policy or third party
+- Modify / Reduce
+  - Use new controls to lower the level of risk (either by reducing likelihood or impact)
+
+### Risk Management Life Cycle
+
+Identify &rarr; Analyse &rarr; Treat &rarr; Monitor
+
+### Critical Appraisal of Risk Methods and Frameworks
+
+- Limits of a **reductionist** approach
+- Lack of variety
+- Limits of a **fixed state** approach
+- Lack of feedback and control
+- Losing risk signals in the **security noise**
+- System operation
+- Information opacity
+- Noise from misguided analysis
+- Noise from bias
+- Assumed determinability
+- Abstraction through labelling
+- The limits of using matrices
+- Limits in the way uncertainty is presented
+- The effect risk relationships have on impact
+- The adverse effect of intervention
+- Impacts are not limited to the scope of assessment
+- The effect of time on risk
