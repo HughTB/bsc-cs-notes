@@ -455,3 +455,137 @@ Identify &rarr; Analyse &rarr; Treat &rarr; Monitor
 - The adverse effect of intervention
 - Impacts are not limited to the scope of assessment
 - The effect of time on risk
+
+## Video 5.0 (Software Security Intro)
+
+### Software
+
+- Software can be an asset on it's own (e.g. source code)
+- Arguably the most difficult type of asset to secure
+- Unfortunately, software development is usually under resourced, leading to increased vulnerabilities
+  - Due to this, security is often an afterthought as opposed to being considered right from the start, which would create a much more secure software architecture
+- Exploiting software errors and vulnerabilities accounts for a substantial proportion of attacks on assets and information
+- The software component of Information Security (IS) can be
+  - Applications
+  - Operating Systems
+  - Assorted Command-Line Utilities
+
+### Web Application Security Risks
+
+- Vulnerabilities may exist in a web application, each of which represent their own risk
+- Different Threat Agents may try to exploit attack vectors to cause an impact on a business, such as leaking information, causing disruption to service or even deleting data
+  - These Threat Agents may be independent or may work in group, and may be state-sponsored or funded by a rival company
+
+### Security Requirement Specification
+
+- Security requirements should be part of the initial specification for a piece of software, as adding it as an afterthought is likely to cause delays or inflation of budgets
+- Security should not be thought of as only needing to defend against misuse, it also means
+  - Ensuring only valid and accurate data is processed and stored by the system
+  - Testing to ensure correct and expected behaviour, inline with the specifications
+  - Methods to backup and restore data in case of loss or damage
+  - Assurance of availability
+  - Compliance with legal or regulatory requirements, such as GDPR
+  - Security of communications
+  - Effective auditing and monitoring of activity
+
+### Common Software Errors
+
+- The Common Weakness Enumeration (CWE) is a list of common software security vulnerabilities
+  - CWE is a community-driven project maintained by MITRE, a non-profit group
+  - It provides a description of each vulnerability and measures that can be taken to mitigate them
+  - CWE/25 lists the 25 most critical software vulnerabilities
+- A similar list is provided by the Open Web Application Security Project (OWASP) 'Top 10' project
+  - This shares many of the same vulnerabilities as CWE/25
+
+## Video 5.1 (Common Errors and Vulnerabilities)
+
+### Cross-Site Scripting
+
+- Cross-Site Scripting (XSS) is improper "neutralisation" of input during web page generation
+  - Essentially failing to filter our scripts such as JavaScript from a form before it is submitted
+- These vulnerabilities occur when
+  - Untrusted data is allowed to enter a web application
+  - A web application dynamically generates a web page containing untrusted data
+  - On page generator, the app does not prevent entry of executable data such as JavaScript or HTML elements
+  - A victim visits a generated page which contains the script which was injected using untrusted data
+  - Since the script is sent from the web server, the victim's browser executes the malicious script "on behalf" of the web server's domain, e.g. thinking it came from the web server
+  - This violates the same-origin policy, meaning that scripts belonging to one domain are not allowed to access resources or run code belonging to a different domain
+
+### Types of XSS
+
+- Type 1: Reflected XSS
+  - This type of XSS *is not* persistent, and so must be injected every time the code runs
+  - The server reflects data in an HTTP request back in an HTTP response
+  - The attacker makes the victim supply an intentionally incorrect HTTP request to a vulnerable web app, which is reflected back to the victim and executed by their browser, thus getting around the same-origin policy
+- Type 2: Stored XSS
+  - This type of XSS *is* persistent, and so only needs to be injected once, and can then affect all users of the application
+  - This is where the script is stored into a database or other data storage of a web application, such as a message board or comment section
+  - The dangerous script is then later read back into the application and included in the dynamically generated content
+
+### XSS Prevention
+
+- The following rules should prevent XSS attacks
+0. Never insert untrusted data, except in allowed locations, such as manually entering data into a database
+1. HTML escape before inserting untrusted data into an HTML container
+2. Attribute escape before inserting untrusted data into HTML common attributes
+3. - JavaScript escape before inserting untrusted data into JavaScript data values
+   - HTML escape JSON values in an HTML context and read the data with `JSON.parse`
+4. CSS escape and strictly validate before inserting untrusted data into HTML style property values
+5. URL escape before inserting untrusted data into HTML URL parameter values
+6. Sanitize HTML markup with a library designed for the job
+7. Avoid JavaScript URLs
+8. Prevent DOM-based XSS
+
+### SQL injection
+
+- If the software constructs part or all of an SQL command using user-input, it should properly sanitize user input
+  - If the user input is not sanitized properly or at all, additional SQL commands may be sent to the database, including reading other records or deleting data
+
+## Video 5.2 (Secure Software Development)
+
+### Principles of Secure Software Development and Deployment
+
+- Secure development is everyone's concern, including end users
+- Produce clean and maintainable code so that if a vulnerability is discovered, it is easier to find and fix
+- Protect the source code, as it is much easier to find and exploit vulnerabilities if you're able to see the code that created the program
+- Continually test your security
+- Secure your development environment, build and deployment pipeline
+
+### Securing the Development Environment
+
+- Keep production and testing systems separate
+- Consider the development environment to be compromised
+- Verify the actions of developers
+- User training is much safer to run in a non-production or non-live system
+- Functionality and acceptance testing should be performed before a system is released to production
+
+### Acceptance Testing
+
+- Security testing should consider the following:
+  - Effectiveness of defensive coding
+  - Protection against malware and code injection
+  - Backup and recovery systems
+  - Access control
+  - Auditing and behavioural analysis
+  - Resilience
+- Development and testing should be handled by different people or teams, as otherwise the developers would be likely to ignore issues they find
+- Version control systems such as git or svn should be used to prevent loss or corruption of data
+
+### Patching
+
+- Every software application will contain bugs
+- Code complexity and size makes it impossible to test 100% of execution paths
+- Bugs may have different impacts on confidentiality, integrity and availability
+- Once found and fixed, a patch should be issued which can be installed to remove the vulnerability
+- Patches should be deployed as soon as possible
+  - Vulnerabilities may be known to malicious groups, so the sooner it's patched, the less likely it is to be exploited
+  - Patches may also be reverse engineered to find new exploits
+- Patches should be tested in non-live environments before they are rolled out en-mass
+
+### Accreditation and Certification
+
+- Certification
+  - A certificate given out by an independent body that assures that a product, system or service meets a set of requirements
+- Accreditation
+  - Formal recognition by an independent body that a certification body operates to standards
+- Accredited certifications are usually required for safety-critical systems
