@@ -99,3 +99,107 @@
   - A good interface provides a mixture of well-designed input and output methods that satisfy the users' needs and expectations
   - The best interface is one that is not noticed and allows the users to get on with their task
   - A bad interface often causes more issues than it solves, as users become frustrated when it breaks their expectations or is hard for them to use
+
+# CCC Item 4 - Lecture 13:00 21/03/23
+
+## Usability and Heuristics (Nielsen's Ten Usability Heuristics)
+
+- Nielsen's ten heuristics are principles for evaluating the usability of and interface, and were created by Jakob Nielsen in 1990
+- These principles define important points in the design of interfaces and should be considered when creating layouts
+- They are, in no particular order:
+
+### \#1 Match between the system and the real world
+
+- The system should use concepts and phrases which are familiar to the user, rather than highly technical system terms
+- Information should be displayed in a natural, logical order to reduce confusion
+- The design should follow real-world conventions
+  - An example of this is how Excel names rows and columns with numbers and letters, which helps users understand which coordinate corresponds to the row and column. Additionally, they begin at 1 rather than at 0, which is how it is represented within the software and files
+  - Another example is how e-book readers display pages from left to right, and can often navigate between them by swiping or "turning the page"
+- Another idea is to use metaphors
+  - For example, using a shopping trolley or cart to represent the items that you have selected to purchase from an online shop
+  - Another example is the settings for a piece of software, which is usually represented using cogs, sliders or a spanner
+
+### \#2 Consistency and Standards
+
+- Users should not have to worry about different words or symbols meaning different things when they are used in different interfaces within the same application
+- Principle of least surprise
+  - Similar things should always look and act in a similar way
+  - Different things should always look and act in different ways
+- Consistent language and graphic design
+  - All objects should maintain the same appearance regardless of where they appear within the system
+  - Objects that provide the same function in different windows (e.g. ok or cancel) should stay in the same place across all occurrences
+- Flat UI design
+  - Buttons and labels should be visibly different, as otherwise it may cause confusion
+  - e.g. in more modern "flat" design, it is sometimes hard to tell the difference between buttons and labels
+
+### \#3 Visibility of System Status
+
+- The system should always keep the user informed of the status of the program
+- This could be something as simple as a progress bar or loading animation, as otherwise it may seem as though the program has frozen
+- Typically, anything less than 5 seconds does not need a loading bar and can get away with just displaying a busy cursor
+- Anything over 5 seconds should have a progress bar, or other display to show that something is happening
+- If a very long data entry is taking place, it is a good idea to display a progress bar or section indicator to show how far through the form they are
+
+### \#4 User Control and Freedom
+
+- Users often press buttons by mistake, and so there should always be a cancel or abort option available
+- As much as possible, Undo and Redo should be supported
+- This could consist of
+  - Cancel button
+  - "Universal" undo
+  - Interrupt (For longer operations)
+  - Quit (Be able to close the application at any time)
+  - Defaults (Have an option to reset settings to sane defaults)
+- Frequent violations of this principle can result in the "pottery barn effect"
+  - This causes users to feel afraid of pressing buttons in case they break the system
+  - The objective is to make the interface as nice to use as possible
+
+### \#5 Error Prevention
+
+- It is much better to prevent errors from occurring in the first place than it is to recover from them
+- This could be in the form of validating all inputs before allowing them to be sent, or detecting inputs which could cause an error and asking the user if they wish to submit it anyway
+- Errors we make
+  - Concious decisions can lead to an error rather than a solution
+  - When a user has a false understanding of the system, either due to bad design or a misunderstanding
+- Slips
+  - Unintentional errors caused by factors such as tiredness
+- A good system is designed to handle errors, which could come in the form of prompts for incorrect spelling or displaying what they have previously input to a form
+- Once again, undo and redo are useful as they allow users to recover form accidental or mistaken deletion of data or files
+
+### \#6 Help users recognise, diagnose, and recover from errors
+
+- Error messages should be displayed in as plain English as possible, with no technical information displayed, or have it hidden behind a "more information" button
+- Deal with errors in a positive and helpful manner, be polite and speak in laymens terms
+
+### \#7 Recognition rather than recall
+
+- The user should not have to remember information from previous parts of the interface in order to use the rest of it
+- Information required to use the interface should be clearly displayed
+- Short term memory can typically hold only 5 to 7 items, and so is easy to overload
+- Another example of this is a "recently opened files" section in a text editor or other application, as well as recently opened links appearing in a different colour on Google search results
+- When there is an input box that can only be one of a few options, it is easier for the user to understand and use if it is shown as a dropdown box
+
+### \#8 Flexibility and Efficiency of Use
+
+- Accelerators - unseen by normal users, but greatly increase the speed at which power users are able to navigate and use the software
+- This could be something like keybindings or menus, bookmarks, command history or suggestions
+- An example of this is intellisense in VSCode and other code editors, which provides predictions based upon what the user is typing, which often greatly increases productivity
+
+### \#9 Aesthetic and Documentation
+
+- Dialogues should not contain unnecessary information
+- If too much information is displayed in one place, it can lead to overload, causing users to become distracted or confused
+- Less is more
+  - Only show information that is needed to use a dialogue
+  - Omit extra information or graphics which only serve aesthetics and not the function of the software
+
+### \#10 Help and Documentation
+
+- It is always better if a system can be used without documentation
+- However, documentation is very useful for new users or for doing an uncommon task
+- Users don't read manuals, but faqs and online information can be useful when a user is frustrated
+- Documentation should be
+  - Searchable
+  - Task-oriented
+  - As concise as possible
+  - Use as little technical information as possible
