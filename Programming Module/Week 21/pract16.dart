@@ -1,8 +1,14 @@
 import 'dart:math';
 
 void main() {
-  print(gradient(1, 2, 4, 6));
+  print(roundToPlaces(gradient(1, 2, 4, 6), 2));
   print(distanceBetweenTwoPoints(1, 2, 4, 6));
+}
+
+double roundToPlaces(double value, int places) {
+  value = value * pow(10, places);
+  value = value.roundToDouble();
+  return value / pow(10, places);
 }
 
 double circumferenceOfCircle(double radius) {
