@@ -93,5 +93,8 @@
 - It tries to give priority to some threads
 - As threads need to be given priority, there are multiple queues, one for high priority threads, and one for lower priority threads
 - A real operating system may have more than two queues, if there are very high and very low priority threads
-- When a thread is created, it initially enters the high priority queue, and if it uses it's entire time slice, it is assumed that it should remain in the high priority queue
 - Threads in the high priority queue are always offered processor time before threads in the low priority queue
+- When a thread is initially created, it is placed on the highest priority queue in the system
+  - If the thread uses all of its allotted execution time, it is assumed to be compute-heavy and so is moved to the low priority queue
+  - If the thread gives up its processor time either to wait for user input, or for resources to become available, it is assumed that the process is interactive, and so remains in the high priority queue
+  - Threads on the higher priority queue are assumed to take up less processing time than low priority threads
