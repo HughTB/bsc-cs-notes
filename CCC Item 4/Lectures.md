@@ -203,3 +203,160 @@
   - Task-oriented
   - As concise as possible
   - Use as little technical information as possible
+
+# CCC Item 4 - Lecture 13:00 28/03/23
+
+## Usability Testing
+
+- Usability Testing
+  - Evaluating the usability of the application, webpage or entire software system that you are developing, but testing with real users
+- Software Engineering companies often neglect to test their interfaces, for many reasons
+  - Not enough time
+  - Too expensive
+  - No expertise
+  - No location or equipment to do it
+  - No experience in interpreting the results
+
+### Why is usability testing needed?
+
+- Why bother doing usability testing if it's too expensive or time consuming?
+- Why can't developers do the testing themselves?
+  - The developers know the ins and outs of the software, and cannot act as a new user
+  - Even limited testing is better than none at all
+- When should usability testing be done?
+  - Ideally, usability testing is done repeatedly during the development cycle so that changes can be made and tested based upon previous feedback
+  - Testing is best at the start of the development cycle, as when done closer to the end, it is much harder to act on the feedback that you gain, as there is often the technical overhead of changing systems to work with the new requirements
+- Types of test
+  - Early in the development: paper mock ups of the interface may be used to get feedback about the overall design of the interface
+  - In the middle of development: compare versions of the user interface to get feedback on which is better for users
+  - Near the end of development: verify that the interface is usable by new users
+- Historical records should be kept of the usability results, so that they can be compared over time
+
+## Testing Approaches
+
+- Traditional testing
+  - Expensive
+  - Time consuming
+  - Scientific
+  - Usually 8 or more users
+  - Carefully selected users to match target demographic
+  - Run by an experienced tester
+  - Scheduled weeks to months in advance
+  - Unless a huge budget is allocated, typically only run a few tests at the end of development
+  - Anywhere from £5000-£15000
+  - Delivered as a 20-page report which must be deciphered
+- "Lost-our-lease" testing
+  - Cheap
+  - Fast
+  - Not scientific
+  - 3 or 4 users
+  - Random people
+  - Run by just about anyone
+  - Tests can be done almost any time, as long as you can find users
+  - Since it's so cheap, run tests continually throughout the development cycle
+  - Roughly £300
+  - Each observer writes a page of notes, can be read through same-day
+- The benefits of multiple tests
+  - One test with 8 users
+    - With more users, they are likely to find more problems with the interface in one sitting
+    - However, these problems might cause them to be unable to look at the rest of the interface
+  - Two tests with 4 users each
+    - In the first test, less issues will be found, but they can be fixed before the next test
+    - In the second test, smaller issues will be found, but they couldn't have been found in a single test as the issues preventing progress have now been fixed
+
+### Ideal Test Setup
+
+- Preferably a quiet room with enough seats for the user and moderator(s)
+- The user sits at a computer, and performs tasks with it
+- The moderator(s) guides the user through the test
+- Developers from the team observer the user, preferably from another room
+  - Alternatively, a webcam and screen capture software is used to record footage to be analysed later
+
+### Selecting Participants
+
+- Ideal participants are users who have not been told much about the app beforehand, so that they have no expectations coming into the test
+- It doesn't really matter who the users are
+  - It's bad for only experts to be able to use the interface, so people with little to no knowledge of the application are ideal
+  - Unless it's a specialist application, in which case the target demographic should be used as testers
+
+### Selecting Moderators
+
+- Anyone with decent people skills can do it
+- Ensure the user knows they're not the one being tested
+- Don't lead the user about how to use the interface
+- When users give feedback, ask them for more detail
+- Don't make notes in a way that makes the user think they've done something wrong
+- Ask questions when the user gets stuck, e.g. "What are you thinking?" or "What're you trying to do now?"
+
+### Types of Tests
+
+- "Get it" testing
+  - Does the user understand the software's function
+  - Ask what they think it does
+  - Just allow the user to click around in the interface and ask them what they think the purpose of each part is
+- "Key task" testing
+  - Ask the user to do a specific task, and see how long it takes them to do it
+  - e.g. "Your task is to buy a book about cars for £10 or less"
+- Exploratory testing
+  - Can a user just "walk up" and start using the software without any instruction
+- Assessment
+  - User performs specific tasks, rather than vague goals
+- Comparison
+  - Get the user to perform the same task using different interfaces
+  - Get feedback on specific parts of each design, as the best option may have parts from multiple interface prototypes
+- Verification
+  - Uses the actual product
+  - Intended to test the performance of the final interface, and find any minor bugs or flaws to be fixed before shippinh
+
+## Conducting a Test
+
+- The observers should be out of the room or out of view
+- The observers should be looking for
+  - Whether the user understands the interface
+  - Can they find their way around the interface
+  - How long does it take them to perform a task (both number of clicks and time)
+  - Do they do anything unexpected
+  - What do the users like and dislike about the interface
+  - What do they do when they get stuck?
+    - Do they need help?
+    - Do they retry it?
+    - Do they just stop and look at the moderator?
+    - Do they look around the app trying to find a feature?
+- The observers should not transcribe anything, that's what the recording is for
+- Only small notes should be made about the user's experience
+- Value the user's actions and explanations over opinions
+
+### Possible Data to Collect
+
+- Number of tasks completed without assistance
+  - How long did each task take?
+  - How many clicks did they have to make for common tasks?
+- Count of incorrect selections or false assumptions
+- Number of times they had to refer to documentation or a help page / window
+- Time needed to recover from an error
+
+### Performance Goals
+
+- For some tests, it is a good idea to set specific goals for the test
+  - e.g. "2/3rds of users will be able to find and change a setting in 5 minutes"
+  - In these sorts of tests, moderators should give the users less help
+  - Just let the user get on with it, rather than giving a running commentary
+  - Alternatives to "thinking aloud"
+    - Replay the recording to the user after the test, asking them to explain why they did what they did
+    - Get them to talk through how they changed the setting after performing the test
+- Bad goals are too vague, such as "is the product usable" "is the product ready for release" "is it a good product"
+
+### Users Fail
+
+- Users fail the tests if they
+  - Don't understand the purpose of the site
+  - Use different words to describe things, and so can't effectively communicate with the moderators
+  - Find the site is too busy / cluttered
+  - Are unclear on what the options on the screen are
+
+### Limitations of Testing
+
+- Somewhat artificial
+- Test results do not prove that an interface "works"
+- It's possible that there is a very steep learning curve, so a brief test may not show the full usability of an interface
+- Doesn't tell you if the product is "good" or needed
