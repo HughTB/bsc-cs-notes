@@ -158,6 +158,24 @@
     - This would remove every record with the id 32 from the table "example_table"
   - **Don't forget to specify a `WHERE` clause, else every record in the table will be deleted *permanently and without confirmation***
 
+## Joins
+
+- A join is a method of "joining" two tables together
+- This is useful if your database is fully normalised, and so you may need data from two or more tables for a single query
+- `INNER JOIN` or `JOIN`
+  - The default type of join, which is used when not specifying the type
+  - Returns all records that have a matching value in both tables
+  - ![Venn diagram, A and B, intersection of A and B is highlighted](resources/inner.png)
+- `LEFT [OUTER] JOIN`
+  - Returns all records in the left table, and any matching records from the right table
+  - ![Venn diagram, A and B, all of A and intersection of B is highlighted](resources/left.png)
+- `RIGHT [OUTER] JOIN`
+  - Returns all records in the right table, and any matching records from the left table
+  - ![Venn diagram, A and B, all of B and intersection of A is highlighted](resources/right.png)
+- `FULL [OUTER] JOIN`
+  - Returns all records which match the `WHERE` statement in either table
+  - ![Venn diagram, A and B, all of A and B is highlighted, including the intersection](resources/full-outer.png)
+
 ## Functions
 
 ### Date Functions

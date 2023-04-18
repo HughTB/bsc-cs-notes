@@ -1,4 +1,6 @@
-# HughTB's Computer Science BSc Notes
+# Hugh Baldwin's Computer Science Notes
+
+[GitHub](https://github.com/HughTB/bsc-cs-notes)
 
 <ul>
     <li><a href="{{ site.baseurl }}/Architecture%20and%20Operating%20Systems/">Architecture and Operating Systems</a></li>
