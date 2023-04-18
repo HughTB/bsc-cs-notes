@@ -21,7 +21,7 @@
 |`TIME`|Just time, defaults to ISO 8601 format (HH:MI:SS), may include time zone (HH:MI:SS +-HH:MM)|
 |`BOOLEAN`|Boolean, can be input as true/false, yes/no, on/off, 1/0. All result in the same internal value|
 
-## DDL Commands
+## DDL (Data Definition Language) Commands
 
 - `CREATE`
   - This is used to create parts of a database, such as the database itself, and tables within the database
@@ -78,7 +78,7 @@
     - This would change the data type of the "customer_email" column in the table "example_table" to a `varchar(255)`
     - This syntax is specific to PostgreSQL, as it was not originally part of the SQL standard
 
-## DML Commands
+## DML (Data Manipulation Language) Commands
 
 - `SELECT`
   - Used to retrieve data from a database
@@ -122,6 +122,12 @@
     SELECT u.id, u.email, u.address1 FROM user u;
     ```
     - This would return the id, email and address1 columns from the table "user". This query uses aliases to make it easier to reference columns from specific tables. While this is not needed in this query, it is useful when dealing with multiple tables, especially where columns in different tables have the same name
+  - ```sql
+    SELECT booking_id FROM booking
+    WHERE booking_date BETWEEN NOW() AND NOW() +INTERVAL '+7 DAYS';
+    ```
+    - This query would return all booking ids from the table "booking" which are booked within the next week
+    - In the case of dates, you can either use `date > AND date <` or `BETWEEN`
 - `INSERT`
   - Used to insert new records into a database
   - ```sql
@@ -157,6 +163,45 @@
     ```
     - This would remove every record with the id 32 from the table "example_table"
   - **Don't forget to specify a `WHERE` clause, else every record in the table will be deleted *permanently and without confirmation***
+- `ORDER BY`
+  - Used to sort the output of a query
+  - ```sql
+    SELECT forename, surname FROM user;
+    ```
+    - This example would return the full name of every user in the system, but it would not be in any particular order
+  - ```sql
+    SELECT forename, surname FROM user
+    ORDER BY surname ASC;
+    ```
+    - This example would return the same data as the above, but this time sorted alphabetically by the users' surnames. If multiple users had the same surname, they would appear in a random order in a group, which is probably not what you want
+  - ```sql
+    SELECT forename, surname FROM user
+    ORDER BY surname, forename ASC;
+    ```
+    - This example returns the same as above, but in the case of multiple users having the same surname, they would then be sorted by forename, which is most likely the desired behaviour in this circumstance
+- `GROUP BY`
+  - This can be used to group records which share an attribute
+  - ```sql
+    SELECT city, COUNT(city) FROM user;
+    ```
+    - This would not return the expected output, as it would count all of the times that a user has a city set. To get the correct output you must group the users by city, using `GROUP BY`
+  - ```sql
+    SELECT city, COUNT(city) FROM user
+    GROUP BY city;
+    ```
+    - This query functions correctly, and returns the number of users from each city along with the name of each city
+  - ```sql
+    SELECT city, COUNT(city) FROM user
+    GROUP BY city
+    WHERE country = 'United Kingdom';
+    ```
+    - This query once again does not work, as you cannot use `GROUP BY` and `WHERE` in the same query. Instead, you must use `HAVING`, which has a very similar syntax but is specifically made to work with groups
+  - ```sql
+    SELECT city, COUNT(city) FROM user
+    GROUP BY city
+    HAVING country = 'United Kingdom';
+    ```
+    - This query now works as intended, returning a list of all cities in the United Kingdom which appear in the table, and how many users have an address in each city
 
 ## Joins
 
@@ -165,16 +210,23 @@
 - `INNER JOIN` or `JOIN`
   - The default type of join, which is used when not specifying the type
   - Returns all records that have a matching value in both tables
-  - ![Venn diagram, A and B, intersection of A and B is highlighted](resources/inner.png)
+  - <img alt="Venn diagram, A and B, intersection of A and B is highlighted" src="resources/inner.png" width=50% height=auto/>
 - `LEFT [OUTER] JOIN`
   - Returns all records in the left table, and any matching records from the right table
-  - ![Venn diagram, A and B, all of A and intersection of B is highlighted](resources/left.png)
+  - <img alt="Venn diagram, A and B, all of A and intersection of B is highlighted" src="resources/left.png" width=50% height=auto/>
 - `RIGHT [OUTER] JOIN`
   - Returns all records in the right table, and any matching records from the left table
-  - ![Venn diagram, A and B, all of B and intersection of A is highlighted](resources/right.png)
+  - <img alt="Venn diagram, A and B, all of B and intersection of A is highlighted" src="resources/right.png" width=50% height=auto/>
 - `FULL [OUTER] JOIN`
   - Returns all records which match the `WHERE` statement in either table
-  - ![Venn diagram, A and B, all of A and B is highlighted, including the intersection](resources/full-outer.png)
+  - <img alt="Venn diagram, A and B, all of A and B is highlighted, including the intersection" src="resources/full-outer.png" width=50% height=auto/>
+- Join Syntax
+  - ```sql
+    SELECT user.forename, user.surname, car.regplate FROM user
+    JOIN car ON user.id = car.owner_id;
+    ```
+    - In this example, there are two tables, "user" and "car". The user table stores information about users of the service, and the car table stores information about cars registered on this service. This should output all records in which there is both an owner and a car, as an inner join is being used
+  - Regardless of which join you wish to use, the syntax is the same. The only difference is that you would replace `JOIN` with the type of join you wish to use (bearing in mind that `JOIN` is a synonym for `INNER JOIN`)
 
 ## Functions
 
@@ -203,6 +255,12 @@
   - column2 should be earlier than column1
 - `DATE_TRUNC([part], [column])`
   - Returns a `TIMESTAMP`, truncated to the level specified. Levels of truncation are the same as those in the `DATE_PART()` function
+- `BETWEEN [date1] AND [date2]`
+  - Not really a function, but still to do with dates
+  - Allows you to select all records with a date in a specific range, and is much easier and clearer than manually comparing the dates
+- `+INTERVAL [time]`
+  - This allows you to add time to a timestamp, date or time
+  - e.g. `NOW() +INTERVAL '+7 days'` would return a timestamp 7 days after the current time and `NOW() +INTERVAL '-7 days'` would return a timestamp 7 days before the current time
 
 ### Text Functions
 
@@ -229,13 +287,19 @@
 
 ### Mathematical Functions
 
+- `COUNT([column])`
+  - Returns the number of rows that have a non-NULL value in the column specified
 - `MIN([column])`
-  - Returns a single value, being the minimum value in the column specified
+  - Returns the minimum value in the column specified
 - `MAX([column])`
-  - Returns a single value, being the maximum value in the column specified
+  - Returns the maximum value in the column specified
 - `AVG([column])`
-  - Returns a single value, being the average of every value in the column specified
+  - Returns the mean average of every value in the column specified
 - `RANDOM()`
   - Returns a single floating point value between 0 and 1
   - To get a value between certain numbers, you can multiply and add to the random value
     - e.g. A random number between 100 and 200 could be obtained using `RANDOM() * 100 + 100`
+
+## Security
+
+- 
