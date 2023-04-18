@@ -211,19 +211,19 @@
   - The default type of join, which is used when not specifying the type
   - Returns all records that have a matching value in both tables
   - Can be represented by the following venn diagram<br>
-<img alt="Venn diagram, A and B, intersection of A and B is highlighted" src="resources/inner.png" width=50% height=auto/>
+<img alt="Venn diagram, A and B, intersection of A and B is highlighted" src="resources/inner.png" width=50% height=auto/><br>
 - `LEFT [OUTER] JOIN`
   - Returns all records in the left table, and any matching records from the right table
   - Can be represented by the following venn diagram<br>
-<img alt="Venn diagram, A and B, all of A and intersection of B is highlighted" src="resources/left.png" width=50% height=auto/>
+<img alt="Venn diagram, A and B, all of A and intersection of B is highlighted" src="resources/left.png" width=50% height=auto/><br>
 - `RIGHT [OUTER] JOIN`
   - Returns all records in the right table, and any matching records from the left table
   - Can be represented by the following venn diagram<br>
-<img alt="Venn diagram, A and B, all of B and intersection of A is highlighted" src="resources/right.png" width=50% height=auto/>
+<img alt="Venn diagram, A and B, all of B and intersection of A is highlighted" src="resources/right.png" width=50% height=auto/><br>
 - `FULL [OUTER] JOIN`
   - Returns all records which match the `WHERE` statement in either table
   - Can be represented by the following venn diagram<br>
-<img alt="Venn diagram, A and B, all of A and B is highlighted, including the intersection" src="resources/full-outer.png" width=50% height=auto/>
+<img alt="Venn diagram, A and B, all of A and B is highlighted, including the intersection" src="resources/full-outer.png" width=50% height=auto/><br>
 - Join Syntax
   - ```sql
     SELECT user.forename, user.surname, car.regplate FROM user
