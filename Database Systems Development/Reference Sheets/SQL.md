@@ -210,16 +210,20 @@
 - `INNER JOIN` or `JOIN`
   - The default type of join, which is used when not specifying the type
   - Returns all records that have a matching value in both tables
-  - <img alt="Venn diagram, A and B, intersection of A and B is highlighted" src="resources/inner.png" width=50% height=auto/>
+  - Can be represented by the following venn diagram<br>
+<img alt="Venn diagram, A and B, intersection of A and B is highlighted" src="resources/inner.png" width=50% height=auto/>
 - `LEFT [OUTER] JOIN`
   - Returns all records in the left table, and any matching records from the right table
-  - <img alt="Venn diagram, A and B, all of A and intersection of B is highlighted" src="resources/left.png" width=50% height=auto/>
+  - Can be represented by the following venn diagram<br>
+<img alt="Venn diagram, A and B, all of A and intersection of B is highlighted" src="resources/left.png" width=50% height=auto/>
 - `RIGHT [OUTER] JOIN`
   - Returns all records in the right table, and any matching records from the left table
-  - <img alt="Venn diagram, A and B, all of B and intersection of A is highlighted" src="resources/right.png" width=50% height=auto/>
+  - Can be represented by the following venn diagram<br>
+<img alt="Venn diagram, A and B, all of B and intersection of A is highlighted" src="resources/right.png" width=50% height=auto/>
 - `FULL [OUTER] JOIN`
   - Returns all records which match the `WHERE` statement in either table
-  - <img alt="Venn diagram, A and B, all of A and B is highlighted, including the intersection" src="resources/full-outer.png" width=50% height=auto/>
+  - Can be represented by the following venn diagram<br>
+<img alt="Venn diagram, A and B, all of A and B is highlighted, including the intersection" src="resources/full-outer.png" width=50% height=auto/>
 - Join Syntax
   - ```sql
     SELECT user.forename, user.surname, car.regplate FROM user
@@ -302,4 +306,122 @@
 
 ## Security
 
-- 
+### Views
+
+- Views can be used to limit users' access to the data stored within a table
+- They do this by pre-defining a query that a user can run, which they can further refine if needed
+- This means that you can grant access to specific columns without allowing access to all of the data in the table
+- Syntax
+  - ```sql
+    CREATE [name] AS [query];
+    ```
+- Examples
+  - ```sql
+    CREATE contact_details AS
+    SELECT forename, surname, email_address, phone_number FROM user;
+    ```
+    - This creates a new view that allows access to only the contact details of a user, without allowing access to other information stored in the table
+  - ```sql
+    SELECT * FROM contact_details
+    WHERE user_id = 42;
+    ```
+    - This returns all of the columns that we've been given access to with the view "contact_details", but filtered to only show the user with id 42
+
+### Users & Roles
+
+- By adding users to the DBMS, we can give selective access to other people without them necessarily having access to all of the data in the database, or administrative privileges to add or remove data
+- Creating a role (user)
+  - In the case of PostgreSQL, a user and role are effectively the same thing
+  - ```sql
+    CREATE ROLE [username] WITH LOGIN PASSWORD [password];
+    ```
+  - ```sql
+    CREATE ROLE hugh WITH LOGIN PASSWORD 'password123';
+    ```
+- Allowing a user to login
+  - Even though the user exists, and has login permission (yes you can create a user that can't login), they still won't be able to login. This is because every user needs their own database
+  - ```sql
+    CREATE DATABASE [database name];
+    GRANT ALL PRIVILEGES ON DATABASE [database] TO [username];
+    ```
+    - This creates a new database, and gives the new user all permissions over said database. Typically, the user and database will share the same name, as in the following example
+  - ```sql
+    CREATE DATABASE hugh;
+    GRANT ALL PRIVILEGES ON DATABASE hugh TO hugh;
+    ```
+  - Alternatively, you can create a new database and set the new user as the owner
+  - ```sql
+    CREATE DATABASE hugh;
+    ALTER DATABASE hugh OWNER TO hugh;
+    ```
+- Granting permissions
+  - Permissions are granted on a table-by-table basis
+  - You can grant permissions with the following command
+  - ```sql
+    GRANT [permission(s)] ON [table] TO [user(s)];
+    ```
+    - The available permissions are as follows: `ALL`, `SELECT`, `INSERT`, `UPDATE`, `DELETE` and `CREATE`
+    - You can grant multiple permissions at the same time, to multiple users, as shown in the following
+  - ```sql
+    GRANT SELECT, INSERT, UPDATE ON user TO hugh, bob;
+    ```
+  - Alternatively, you can create a superuser, who has all permissions on all databases and tables in the DBMS
+  - ```sql
+    ALTER USER [username] WITH SUPERUSER;
+    ```
+    - This changes the user account to be a superuser, and therefore grants all permissions, everywhere
+  - ```sql
+    ALTER USER hugh WITH SUPERUSER;
+    ```
+- Revoking permissions
+  - Permissions can be revoked individually or all at once, similarly to granting permissions
+  - ```sql
+    REVOKE [permission(s)] ON [table] FROM [user(s)];
+    ```
+    - This removes one or more permissions from the user(s) specified
+    - The available permissions are the same as those for granting permissions
+  - Additionally, you can revoke permissions from all users on a table at the same time
+  - ```sql
+    REVOKE [permission(s)] ON [table] FROM PUBLIC;
+    ```
+    - This revokes the specified permissions from all users on the specified table
+- Removing a user
+  - Before we can remove a user, we have to remove all of their permissions. We can do this with a single command
+  - ```sql
+    REVOKE ALL ON ALL TABLES IN SCHEMA public FROM [username];
+    ```
+  - Then we need to remove their user database
+  - ```sql
+    DROP DATABASE [username];
+    ```
+    - This assumes that the user and database have the same name
+  - And finally, we can remove the user
+  - ```sql
+    DROP ROLE [username];
+    ```
+
+### Encryption
+
+- Encryption is turned off by default, so first you must turn it on within your DBMS (This only needs to be done once per DBMS)
+- ```sql
+  CREATE EXTENSION IF NOT EXISTS pgcrypto;
+  ```
+  - This is specific to PostgreSQL, other DBMSs likely have a different command or set there of to enable encryption
+- The encryption and decryption is handled by a function that you can use at any time, but the most likely time is when `INSERT`ing and `SELECT`ing values
+- Encrypt data
+  - ```sql
+    ENCRYPT([data], [key], [method])
+    ```
+    - Acceptable values for the encryption method are `bf` and `aes`, being Blowfish and AES-128, -192 or -256 respectively
+    - This returns the encrypted data as a bytea value, so any column intended to store encrypted data should be bytea
+  - ```sql
+    ENCRYPT('password123', 'this is a key', 'aes') -> ciphertext
+    ```
+- Decrypt data
+  - ```sql
+    DECRYPT([encrypted data], [key], [method])
+    ```
+    - This returns the decrypted data, providing that the same key and encryption method are specified as were used to encrypt it
+  - ```sql
+    DECRYPT(ciphertext, 'this is a key', 'aes') -> password123
+    ```
