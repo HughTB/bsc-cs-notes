@@ -3,6 +3,7 @@
 [GitHub](https://github.com/HughTB/bsc-cs-notes)
 
 <ul>
+    <li><a href="{{ site.baseurl }}/Revision%20Sheets/">Revision Sheets</a></li>
     <li><a href="{{ site.baseurl }}/Architecture%20and%20Operating%20Systems/">Architecture and Operating Systems</a></li>
     <li><a href="{{ site.baseurl }}/CCC%20Item%201/">CCC Item 1 (Video Essay)</a></li>
     <li><a href="{{ site.baseurl }}/CCC%20Item%202/">CCC Item 2 (Web)</a></li>

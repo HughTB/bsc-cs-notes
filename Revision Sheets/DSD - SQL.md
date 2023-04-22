@@ -1,4 +1,4 @@
-# DSD Reference Sheet - SQL
+# DSD Revision Sheet - SQL
 
 ## Data Types
 
