@@ -106,7 +106,3 @@
     - Preemptive
       - The currently running process will be suspended if a new process enters the queue with a lower execution time than is left of the current process
   - Either way, the process with the shortest runtime will be executed first, leading to lower average wait times
-- Priority Scheduling
-- Round-Robin (RR)
-- Multilevel Queue
-- Multilevel Feedback Queue
