@@ -360,3 +360,105 @@
 - Test results do not prove that an interface "works"
 - It's possible that there is a very steep learning curve, so a brief test may not show the full usability of an interface
 - Doesn't tell you if the product is "good" or needed
+
+# CCC Item 4 - Lecture 13:00 02/05/23
+
+## Usability Standards, Guidelines and Evaluation
+
+## Standards
+
+- An agreed way of doing something
+- Usually created by a recognised and independent body
+- Provides a level of quality for the products which use the standard
+- Provides specific and measurable information about how the standard should be implemented
+
+### Why do we need standards?
+
+- Standards promote best practices for software and hardware to abide by
+- They improve consistency between products made by different companies
+- Standards are independent and therefore do not represent the best interests of one company or person
+- Contracts often require abiding by standards to make sure that the final result of the contract is up to a set quality and is consistent with other contracts
+- Places such as the EU have specific requirements for any business operating within them, and having standards will ensure that they comply with the requirements set for them
+- Another advantage of standards is that they can be updated all the time when requirements change, and having them all in one place means that every product that refers to the standard will be using the same version
+
+### International Standards Organisation (ISO)
+
+- The ISO provides a range of standards for all sorts of things, from technology to the correct way to prepare tea
+- By having centralised standards organisations, it is much easier to access the standards and it reduces the influence any one company or government can have over the standards that they publish
+
+## Guidelines
+
+- A guideline is the following
+  - A general rule that should be followed
+  - Advice
+  - A statement of policy or procedure
+  - Evidence based rules
+- A principle is an abstract design rule, such as "Recognition rather than recall"
+- A guideline is advice on how to achieve a principle
+- Guidelines provide clear instructions on a range of issues that may be encountered during the design process
+- They help usability specialists evaluate products based upon the sets of rules that they describe
+- The provide guidance about a wide range of usability design issues
+- Guidelines also help reduce the impact of "opinion-driven" design, and provide a more objective set of rules to evaluate a design
+
+## Evaluation
+
+- The process in which the interface is tested to determine whether it meets the needs of the intended user
+- It provides feedback which could help designers to improve the usability of an interface
+  - Allows the designers to find out which parts of the interface are understandable and which parts need to be improved
+  - Can highlight issues with the design, such as parts of the interface which don't function correctly
+
+### Framing Research
+
+- You need to answer the following questions as part of the research so that designers can more easily understand the problem
+  - Who - Who is using the product?
+  - What - What are they using the product for?
+  - When - When are they using the product?
+  - Where - Where are they using the product? Both physically and on which devices
+  - Why - Why are they using the product?
+  - How - How do people intend to use the product? Is this the same as the design intended?
+  - How Many - How many people are going to use the product? How large is the demographic? How many people are needed to get a valid test?
+
+### Summative Evaluation
+
+- Often performed at the end of the development cycle
+- Provides an evaluation and summary of the usability of the end product
+  - Not necessarily your product, you could run tests on competitor's products to see what you could improve on
+- Ensures that the end product matches the requirements
+
+### Formative Evaluation
+
+- Often performed during the development cycle
+- Can be used to inform the development process as it is ongoing
+  - Usually done using a prototype of the interface rather than the final system
+- Takes the specific users into account (knowledge, skills, gender, age, etc)
+- Allows the development to be informed by testing, as it can occur in parallel with development
+
+### Analytic Evaluation
+
+- A much more formal method of assessing the usability of an interface
+- Only useful if there is an existing system, and not for prototyping new or ongoing system development
+- Uses GOMS rules
+  - Goals - A task that needs to be performed (e.g. sending an email, adding a new user, etc)
+  - Operators - All actions that are performed to complete a goal (e.g. number of clicks or time spent, etc)
+  - Methods - A group of operators (e.g. move the mouse to send button, click on the button)
+  - Selection - Different methods of applying a method (e.g. press enter rather than clicking the mouse)
+
+### Cognitive Walkthrough
+
+- Used to evaluate the learnability of a system
+- Unlike user testing, there are no users involved and is usually far cheaper
+- Three main parts
+  - Identify the goal you wish to evaluate
+  - Identify the tasks needed to achieve that goal
+  - Document the experience while doing the task
+    - Will users understand how to start the task?
+    - Are the controls obvious?
+      - Will the users know the control is the one that they need?
+    - Was there feedback to confirm that you have succeeded or failed to complete a task?
+
+### Empirical Evaluation
+
+- Users participate in trials of prototype versions of the interface
+- May involve benchmark testing
+- May involve collecting and evaluating subjective opinions about the interface
+- Requires careful design and consideration of the trial's content and how the evaluation is performed
