@@ -146,7 +146,7 @@ String gradeCalculator(Map<String, int> credits, Map<String, List<int>> marks) {
   } else if (grade > 60) {
     return "2:1";
   } else if (grade > 50) {
-    return "Desmond";
+    return "2:2";
   } else {
     return "Fail";
   }
