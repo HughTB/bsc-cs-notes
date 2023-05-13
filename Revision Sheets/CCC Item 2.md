@@ -27,7 +27,7 @@
   - There should only be one `<h1>` element, as this is the "title" for the page
   - Some browsers will still display invalid HTML using "quirks mode" but this is unsupported, and it is much better for compatibility to comply with the standard
 - Since the introduction of HTML5, it is no longer necessary to include `<html>`, `<head>` or `<body>` tags in the document, as the browser automatically determines this based on the first displayable element
-  - This allows developers to be lazy, and allows files to be slightly smaller by removing these unnecessary tags
+  - This allows developers to be lazy and allows files to be slightly smaller by removing these unnecessary tags
 - Since HTML uses descriptive markup, the styling is handled separately using Cascading Style Sheets (CSS)
 
 ### Cascading Style Sheets (CSS)
@@ -93,3 +93,29 @@
   - `./` relates to the current folder
   - `/` is the server's root folder
 - With a `href=""` attribute, you can use any type of URL, including ones such as `mailto:` and `tel:` which start a new email and enter a phone number into the default phone app respectively
+
+## Scalable Vector Graphics (SVG)
+
+- SVG is a dialect of XML (eXtensible Markup Language), which means that it has a very similar syntax to HTML
+- This also allows you to directly embed SVG images into an HTML document
+- The advantage of using SVG is that they will scale perfectly to any resolution display, as they store images as a set of instructions rather than a set of pixels
+- There are many different shapes that you can use in SVG, such as
+  - Rectangles, `<rect />`
+  - Circles, `<circle />`
+  - Ellipse, `<ellipse />`
+  - Polyline, `<polyline />` (A set of lines defined by a list of points)
+  - Polygon, `<polygon />` (Similar to a polyline, but expected to be an enclosed shape)
+  - Path, `<path />` (Draws multiple moves from a list, allowing curves)
+  - Text, `<text />` (Obviously, draws text)
+- If the SVG image is embedded into the HTML document, you can use CSS to style the components of the image
+- Each shape typically has a few properties. Common ones include
+  - `fill`, which can be none for transparent, or the name or hexadecimal value of a colour
+  - `stroke`, which can be none for no outline, or the name or hexadecimal value of a colour
+  - `stroke-width`, which can be an integer or decimal number representing the number of pixels thick the outline should be
+- Each component of an image has an x, y and transform property
+  - x is the horizontal position of the component (starting at 0 on the left and increasing as you move right)
+  - y is the vertical position of the component (starting at 0 at the top and increasing as you move down)
+  - Transform controls any translation, scaling and rotation of the component. For example, `transform="rotate(90)"` would rotate the shape 90 degrees clockwise about the point (0,0)
+- Within an SVG image, you can create groups and shapes which can then be reused multiple times
+  - Using the `<g>` tag, you can create a group which allows you to control the properties of all elements within the group at once. e.g. set the colour of all elements to green with one property
+  - Using the `<defs>` tag, you can create a new shape and give it an id using `id=""`. This can then be reused within the same file using the `<use href="">` tag
