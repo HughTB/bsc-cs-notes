@@ -97,3 +97,39 @@
     - External data-in signal - Data sent from the external device to the computer
     - External data-out signal - Data sent from the computer to the external device
     - Interrupt signals - A signal sent directly to the CPU telling it to pause execution and respond to the interrupt
+
+## Memory
+
+### Key Characteristics
+
+- Volatility
+  - Volatile memory stores data only until it is disconnected from power, such as RAM
+  - Non-volatile memory stores data even when power is lost, such as SSDs, HDDs or USB drives
+- Location
+  - Internal - Inside the computer and non-removable, e.g. registers, main memory (RAM), secondary memory (SSDs, HDDs)
+  - External - Outside the computer and removable, e.g. ODDs, external HDDs or SSDs, USB drives
+- Capacity
+  - Number of words of memory
+  - Number of bits per word
+- Unit of Transfer (The smallest chunk of data which can be read at once)
+  - Bits (Usually only main memory)
+  - Bytes
+  - Words (Often used for registers)
+  - Blocks (Many words of data, sometimes used by secondary memory)
+- Access Methods
+  - Sequential Access - Has to read from the start of memory to the requested address, e.g. tape drives
+  - Direct Access - Directly reads from the requested address, e.g. SSDs, HDDs, ODDs
+  - Random Access - All locations in memory are available all the time, e.g. RAM, ROM, Cache
+  - Associative Access - Returns addresses around the requested address in anticipation of future requests, e.g. Cache
+- Performance
+  - Access Time (Latency)
+  - Cycle Time (Period)
+  - Transfer Rate (Frequency)
+- Physical Memory Type
+  - Semiconductor, e.g. RAM, ROM, SSD
+  - Magnetic, e.g. Floppy Disk, HDD
+  - Optical, e.g. DVD, CD, Bluray
+  - Magneto-Optical
+- Rewritability
+  - Erasable - Can be erased and rewritten to, e.g. HDD, SSD, RAM
+  - Non-erasable, e.g. CD-R, ROM
