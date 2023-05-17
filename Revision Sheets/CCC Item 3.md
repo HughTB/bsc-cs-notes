@@ -257,3 +257,77 @@
 - If key A encrypts a message, only key B can decrypt it
 - The highest security is achieved when one key is used as a public key and the other a private key
 - Nowadays, asymmetric encryption is mostly used to encrypt the key for a symmetrically encrypted session
+
+## Risk Management
+
+- There are 3 factors to consider when assessing the risk of any one vulnerability
+  - Threat
+    - The individual, group or circumstance which could cause the impact
+  - Vulnerability
+    - The vulnerability in the system and its severity
+  - Impact
+    - What would the impact be if the vulnerability was exploited
+- Risk Assessment Steps
+  - Identify risks
+  - Analyse risks
+  - Tread risks
+  - Monitor & review
+- Qualitative Risk Analysis
+  - Uses a scale of attributes to assess the magnitude of the consequences. Can be used as an initial screening to identify which risks need more in-depth analysis
+- Quantitative Risk Analysis
+  - Uses a scale of numerical values for the consequences and likelihood. Typically derived by looking at previous incidents
+- The Risk Management Life Cycle is as follows
+  - Identify → Analyse → Treat → Monitor
+
+### Risk Treatment
+
+- There are several options when it comes to treating risks
+- Retain/Accept
+  - Tolerate but do not ignore the risk (Typically only when the likelihood or impact is very low)
+- Avoid/Terminate
+  - Stop doing the thing that incurs the risk
+- Share/Transfer
+  - Palm it off on a third party
+- Modify/Reduce
+  - Implement new controls to lower either the likelihood or impact of the risk
+
+## Common Software Errors
+
+- Software can be an asset in and of itself (e.g. program source code)
+- Software development is often underfunded or given a very short time frame, which limits the amount of security testing which can be done
+  - To avoid this, security should be part of the specification and requirements for the software
+  - Additionally, testing should be done before the software is accepted and deployed, such as functional testing and penetration testing
+
+### Web Errors
+
+- Cross-Site Scripting (XSS) is very common and occurs when user input is not properly sanitised to remove scripting elements
+- There are 2 different types of XSS
+- Reflected XSS
+  - This is not persistent, so must be run separately for every user who loads the page
+  - The attacker forces the victim to send an intentionally incorrect HTTP request to a vulnerable web server, which then reflects it to the victim before it is executed by their browser. This method avoids CORS
+- Stored XSS
+  - This is persistent, so only needs to be injected once
+  - The malicious script is stored in the database of the web app and sent to victims whenever they request that data. This could be in the form of a comment on a forum, or something similar
+- SQL injection
+  - If the user input to an SQL database is not properly sanitised, it may be possible for them to change the query being sent to the database
+  - Depending upon the permissions of the database user, the impact could range from reading the incorrect tables, or entirely deleting values stored in the database
+
+## Secure Software Development
+
+- Developers are responsible for securing the programs they write
+- Source code should be protected, as it is much harder to find vulnerabilities without it
+- The development and production environments should be completely separate to prevent issues while testing new versions of the software
+- It is much easier to maintain and patch software if it's written cleanly, and if comments are included
+- Version control should be used at all times, and there should be a mandatory review process involving at least 2 people to prevent mistakes or intentional sabotage
+
+### Patching
+
+- Software should be updated as soon as possible, to reduce the likelihood of vulnerabilities being exploited
+- New patches should be tested thoroughly in a development environment before being pushed to production
+
+## Accreditation and Certification
+
+- Accreditation
+  - Formal recognition by an independent body that a certification body operates according to standards
+- Certification
+  - A certificate given out by an accredited certification body which assures a product, system or service complies with a set of requirements
