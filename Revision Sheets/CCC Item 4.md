@@ -74,3 +74,81 @@
 - It is always best for a system to be usable without documentation, but it is still very useful for new users or advanced users performing an uncommon task
 
 ## Usability Testing
+
+- The process of evaluating the usability of the application, website or software system, typically using real users
+- Testing is often carried out too late into the development process, once the design or functionality of the system is already finalised
+- When should testing be done?
+  - Ideally, testing should happen repeatedly during the development of the software system, so that changes can be made and iterated upon
+  - Even if the system is non-functional, or even just a sketch on paper, it's still possible to test with users to get feedback on the overall design
+- What data should be gathered?
+  - User actions and explanations of their actions, but not necessarily their opinions
+  - Numerical data can also be incredibly useful, such as the time or number of keypresses taken to complete a task
+
+### Testing Approaches
+
+- Traditional Testing
+  - Expensive and time consuming as it is more scientific than other types of testing
+  - Usually 8 or more carefully selected users who fit with the target demographic
+  - Since they are run by an experienced tester or testing firm, they have to be scheduled many weeks or months in advance
+  - Rather expensive (£5K-£15K), so typically only a few tests are run and often at or near the end of development
+- "Lost-Our-Lease" Testing
+  - Cheap and fast, but not very scientific
+  - Only a few, usually 3 to 5, people selected completely at random
+  - Can be run by almost anyone and at any time, as long as you can find users
+  - Very cheap, in the region of a few hundred pounds
+
+### Types of Test
+
+- "Get it" Testing
+  - Does the user understand the software's main functions? Allow them to click around the interface and ask them what they think each part of it does
+- Key Task Testing
+  - Ask the user to perform a specific task and collect data such as time taken and the number of clicks to complete the task. For example "Your task is to buy a book about cars for less than £10"
+- Exploratory Testing
+  - Can a user "walk up" and start using the software without any instruction
+- Assessment
+  - User performs a specific task rather than vague goals
+- Comparison
+  - Get the users to perform the same task using different interfaces, asking for feedback about specific parts of each design, as the best interface may have aspects from multiple different prototypes
+- Verification
+  - Tests are performed to test the final version of the interface, and find any minor bugs or flaws which can be fixed before shipping the software
+
+## Accessibility
+
+- Designing software, websites, apps and tools to be usable by anyone, regardless of their circumstances (including impairments, economic issues or location)
+- There are accessibility standards, such as the ones published by the UN and W3C, but compliance is very low
+
+### Impairments
+
+- An impairment is anything which has an adverse effect on someone's ability to carry out day-to-day activities
+- Typical impairments include
+  - Auditory (Speech, deafness, hearing impairment)
+  - Visual (Blindness, colour blindness, low vision)
+  - Cognitive (Dyslexia, ADD, Autism)
+  - Physical (Cerebral palsy, Epilepsy)
+
+### Design for All (Universal Design)
+
+- An approach for designing for accessibility
+- The main principles include
+  - Equitable use - The design does not favour or disadvantage any group of users
+  - Flexibility of use - The design accommodates a wide range of user preferences
+  - Simple/Intuitive use - The design is simple and easy to understand, regardless of user experience, knowledge or language skills
+  - Perceptible information - The design communicates necessary information to the user regardless of their sensory abilities
+  - Tolerance for error - The design minimises the consequences of unintentional actions or errors
+  - Low physical effort - The design can be used efficiency without large physical effort
+  - Size and space for approach and use - The design provides sufficient size and space for use regardless of any physical conditions, including those in wheelchairs or other mobility devices
+
+### Inclusive Design
+
+- A more pragmatic approach to accessible design, based on four main ideas
+  - A part of being human is having different abilities to others, and these abilities change over time
+  - Designs that work for people with disabilities work better for everyone
+  - Our self-esteem, identity and well-being are affected by our ability to function independently in our daily lives
+  - Usability and aesthetics are mutually compatible
+
+### Web Content Accessibility Guidelines (WCAG)
+
+- Perceivable - Information must be visible to more than one sense, so that people with a sensory impairment can still perceive it
+- Operable - The interface should not require any sort of interaction that a user may not be able to perform
+- Understandable - The content or operation of an interface must be within the understanding of anyone and everyone
+- Robust - As technologies and user agents evolve and improve over time, the content should continue to be accessible
