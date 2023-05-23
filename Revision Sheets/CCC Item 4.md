@@ -152,3 +152,37 @@
 - Operable - The interface should not require any sort of interaction that a user may not be able to perform
 - Understandable - The content or operation of an interface must be within the understanding of anyone and everyone
 - Robust - As technologies and user agents evolve and improve over time, the content should continue to be accessible
+
+## Standards
+
+- An agreed way of doing something, usually created and recognised by an independent body, which assure compatibility or a level of quality. They also provide specific and measurable information about how the standard should be implemented
+- Standards are needed to promote best practices for software and hardware development, as well as enforcing consistency and compatibility between systems made by different companies
+- Since they are made independently of any company or country, they are not affected by their interests
+- The International Standards Organisation (ISO) is a widely known and well-renown standards organisation which acts independently of any government. Since it is an international organisation, it is possible for companies around the world to use the same standards for their products
+
+### Guidelines
+
+- Sets of general rules which are advisable to follow, but not required. Typically based on previous experience and evidence
+- They provide clear instructions on a variety of issues which may crop up during the design or implementation process, as well as reducing the impact of "opinion-driven" design 
+
+## Evaluation
+
+- The process by which an interface is tested to determine if it meets the needs of the intended user
+- It also provides feedback which could aid designers in improving the usability of an interface, such as the parts of the interface which are understandable and which parts need to be improved
+
+### Types of Evaluation
+
+- Summative
+  - Undertaken at the end of the development cycle, providing an evaluation and summary of the usability of the end product
+- Formative
+  - Undertaken during the development cycle, and can be used to inform the development process as it is ongoing. Any type of interface can be tested, from a working prototype to a paper mock up
+- Analytic
+  - Undertaken to evaluate existing solutions, rather than create new ones. Includes GOMS and Cognitive Walkthrough
+  - GOMS
+    - Goals (A task that needs to be performed), Operators (Actions required to complete a goal), Methods (A group of operators), Selection (Different ways of applying a method)
+  - Cognitive Walkthrough
+    - A technique for evaluating the learnability of a system
+    - Identify the goal you wish to evaluate. Identify the tasks needed to complete that goal. Document the experience of performing the task
+    - Will users understand how to complete the task? Are the controls obvious? Is there any feedback to confirm that you've completed a task?
+- Empirical
+  - Undertaken with prototype interfaces to understand user opinion and expectations, as well as gathering benchmark tests
