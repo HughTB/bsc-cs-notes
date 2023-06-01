@@ -283,3 +283,43 @@
   - Vastly improved performance as compared to routing at every hop
   - Much more scalable
   - Shares many of the benefits of connection-oriented networking
+
+### Network Management
+
+- Since networks are often business critical, any network downtime can cause huge losses of productivity
+- The main goals of network management are to reduce the likelihood of downtime by monitoring the network and predicting issues before they occur
+- The needs of network management are
+  - A protocol for obtaining network management data, e.g. event reports
+  - A database of network parameters over time, e.g. throughput, collisions, etc
+  - A computer that is independent of the network, so that it can continue to function even if the network goes down
+- These needs are met by
+  - Simple Network Management Protocol (SNMP)
+    - Read/Write between network management devices and client devices
+  - Management Information Bases (MIB)
+    - The database of network parameters, collected using SNMP
+  - Structure of Management Information (SMI)
+    - Device independent notation of network parameters
+
+### Remote MONitor (RMON)
+
+- It collects information on behalf of the MIB
+- Allows greater control and monitoring of network traffic, increasing the effectiveness of network management personnel
+- RMON can be implemented in two different ways
+  - An independent probe device attached to each LAN segment
+  - Integrated into a network device, such as a switch or router
+- There are two forms of RMON
+  - Type 1 monitors OSI layers 1 and 2, collecting collision and error statistics
+  - Type 2 monitors higher layers of the OSI model, collecting information about application-specific traffic
+
+### Network Security
+
+- There are several vulnerabilities present in networks, such as
+  - Remote attacks
+  - Software or hardware back doors
+  - Improper configuration
+  - Internal attacks
+  - Access Control
+- Firewalls are a good way of preventing unauthorised connections, and connections to unsafe or malicious services
+  - They are typically used anywhere that there is an internet connection
+  - Firewalls can be a physical device, a software device on a router, or implemented on each network client individually
+  - Dedicated firewalls usually perform the best, and have some features not present in other firewalls, such as URL and content filtering
