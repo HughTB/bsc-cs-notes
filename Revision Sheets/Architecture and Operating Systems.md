@@ -2,7 +2,32 @@
 
 (Only includes content from Teaching Block 2, as this is what will likely come up on the test)
 
-## Registers
+## Computer Structure and Function
+
+- There are usually only 4 types of operation that a computer can perform
+  - Data Processing
+    - Performing mathematical or other operations on data stored in the computers memory
+  - Data Storage
+    - Short-Term storage (RAM, Registers)
+    - Long-Term storage (HDD, SSD)
+  - Data Movement
+    - Input/Output (IO) Devices such as keyboards, mouses, network cards, etc
+    - Moving data between long and short term storage
+  - Control
+- There are a few main components in a computer
+  - CPU (Central Processing Unit)
+    - Control Unit (CU)
+      - The "heart" of the CPU and determines what the ALU and registers do
+    - Arithmetic and Logic Unit (ALU)
+      - Contains the Adder/Subtracter circuits
+    - Registers
+      - Very small but fast memory which store information as it is exchanged between components
+  - Main Memory (RAM or ROM)
+  - Secondary Memory (HDDs, SSDs, ODDs)
+  - IO Controllers
+  - System Interconnections
+
+### Registers
 
 - Registers are very small but very fast pieces of memory, which are typically used when the CPU exchanges information with the main memory
 - The registers found in a typical CPU are the following
@@ -19,7 +44,7 @@
   - Multiplier Quotient (MQ)
     - Stores temporary values for the ALU, either inputs or outputs, typically only used when performing multiplication
 
-## The Instruction Cycle
+### The Instruction Cycle
 
 - Fetch Cycle
   - The next instruction is fetched from memory and stored in the MBR
@@ -133,3 +158,206 @@
 - Rewritability
   - Erasable - Can be erased and rewritten to, e.g. HDD, SSD, RAM
   - Non-erasable, e.g. CD-R, ROM
+
+### Hierarchy
+
+- Going down the hierarchy, the cost per bit and speed decrease, but the capacity increases
+- In-board Memory
+  - Registers
+  - Cache
+  - Main Memory (RAM)
+- Out-board Memory
+  - HDDs/SSDs
+  - Magnetic Disks (Floppies)
+  - Optical Disks (CDs, DVDs)
+- Offline Storage
+  - Magnetic Tape
+
+### Cache
+
+- There are usually 3 layers of cache, which sit in between the Registers and Main Memory
+- They serve to speed up memory access by caching either frequently accessed data, or data that may need to be accessed soon, such as the next few instructions of a program
+- The hierarchy is as follows: Registers → L1 Cache → L2 Cache → L3 Cache → Main Memory
+
+## Operating Systems
+
+- An Operating System is a program in and of itself, and is usually one of the first programs to run anytime you turn a computer on
+- They typically sit between user programs and hardware, providing an environment for other programs to run inside of
+- They are responsible for starting and stopping programs, as well as managing memory and CPU time shared between them
+- Additionally, they provide interfaces to IO devices and file storage, to improve the ability of programs to run on more than one make or model of computer
+
+### Interfaces
+
+- Graphical User Interface (GUI) is typically what we think of as being the operating system, and is seen in all modern desktop and mobile OSes
+- Command Line Interface (CLI) is still used today, usually for more administrative tasks, or where it would be infeasible or impractical to use a GUI
+
+### The Kernel
+
+- The kernel is the heart of the operating system, and is the code responsible for allocating resources to programs
+- It usually has it's own space in memory which other programs cannot access, so that it is harder to tamper with either on purpose or accidentally, if a program is poorly written
+- There are 3 separate parts of a computers memory, each of which can only be accessed by the programs running in them
+  - User Space, which is where any user applications run
+  - OS Space, which is reserved for processes required by the operating system
+  - Kernel Space, which is part of OS space, and reserved only for applications which require direct access to the hardware, such as device drivers
+
+### Monolithic vs Micro Kernels
+
+- Monolithic Kernel
+  - User services and kernel services run in the same address space
+  - Much lower access time and faster code execution
+  - Harder to maintain and extend
+  - Higher general system performance
+  - Used by Linux and other Unix-like operating systems
+- Microkernel
+  - User services and kernel services are in separate address spaces
+  - Much smaller in memory footprint
+  - Higher access time and slower execution
+  - Easier to maintain and extend
+  - Lower general system performance
+  - Windows uses a hybrid of Monolithic and Microkernels, depending upon the version and CPU architecture
+
+### Types of Operating System
+
+- Batch
+  - The first type of operating system developed
+  - Data and commands to execute on the data are submitted in the form of a job, and there is little or no interaction once the job has started
+  - Used in systems such as payroll processing and bank mainframes
+- Interactive
+  - The most common type of operating system on desktop and mobile devices
+  - User input can be received from keyboards, mouses and other devices while the program is running
+  - There are both single-user (Windows, MS-DOS, etc) and multi-user (Unix, Linux, MacOS) versions of interactive OSes
+  - Multi-user versions allow multiple users to interact with different programs at the same time
+- General-Purpose
+  - Typically used where both interactive and batch processing are needed
+  - Network OS
+    - Designed to share resources such as printers, files or databases on a network
+  - Distributed Systems
+    - The most recent and innovative type of OS
+    - Multiple machines act in tandem as though they were a single machine
+    - This allows for either much higher resilience, or much greater overall processing power, depending on the end users' needs
+    - If one machine becomes overloaded, programs could be transferred seamlessly to another machine in the cluster
+  - Specialist Systems
+    - Operating systems specifically designed for one task, such as running an ATM, controlling industrial machinery, or realtime systems such as card processing
+
+## Processes and Process Management
+
+- A process is the "unit of work" in a computer
+- It is the sequence of states (e.g. steps in the fetch-execute cycle) resulting from the sequence of instructions that make up a program
+
+### Process Management
+
+- For each process, the operating system maintains a "Process Control Block" which contains useful information, such as the current process state, the next instruction to execute, and any resources (memory, storage, IO devices) which are assigned to it
+- This allows the operating system to effectively keep track of and manage all of the processes that may be running on the computer at any one time
+- There are two main parts of a process
+- Static Resources
+  - Memory allocation
+  - Working directory
+  - IO devices
+  - Connections to other processes (locally or over the network)
+  - The sequence of instructions which make up the program
+- Dynamic Resources
+  - The instructions that are actually executed
+  - The thread of execution (or thread)
+    - Each thread has access to all of the resources allocated to the process
+    - Every process can have any number of threads
+
+### Processors and Operating System Overhead
+
+- Since there are usually less processors (or cores) than running processes, the operating system has to manage which processes are running at any one time
+- For this to work, the processors have to be shared between processes, and as such do not always have access to the processor
+- Any time that the operating system needs to switch processes on the processor, it must "switch contexts", which essentially means saving the current state of the process into memory, and loading in the next one
+- This is a very expensive operation, and should be avoided at all costs
+- However, it is very common for a process to begin executing and then immediately have to wait for data to come in, either from secondary storage, or user input
+
+### Multithreading
+
+- By using multithreading, it is possible to reduce the impact of OS overhead, improving the performance of the computer and meaning that the processors spend more time actually working than switching contexts
+- The basic concept is that each processor has multiple threads running on it at a time, as that way if one thread stalls, the other thread can immediately take over control of the processor without the overhead of context switching
+- There are two types of thread
+- User Threads
+  - Threads used by programmers within their applications
+  - They run on top of the kernel, and context switching is handled by the application
+- Kernel Threads
+  - Handled directly by the kernel itself
+  - Context switching and thread switching are handled by the operating system, and is usually more efficient as it can predict which thread will make the most efficient use of the processor
+
+### Thread State
+
+- Each thread is can be in one of two states at a time
+- The Run state
+  - The thread is currently able to run, and has all of the information and resources it needs to execute the next instruction
+  - Threads in the run state are placed into the run queue, where they wait their turn to run on the processor, as determined by the scheduler
+- The Wait state
+  - The thread is not able to run for any reason
+  - This could be due to waiting for some sort of input from a user, or for a file to be loaded from secondary storage
+  - Threads in the wait state are placed into the waiting queue
+- When a thread is initially created, it starts in the Run state so the first instruction is executed
+- A thread could change to the wait state for several reasons
+  - Voluntarily - e.g. if a resource is needed from secondary storage, or user input is needed
+  - Termination - A thread or entire process may be terminated by the operating system, either automatically or at the request of the user
+  - Preemption - A thread is forcefully moved to the wait state if the thread uses it's allotted processor time, a higher-priority thread needs to be executed, or an interrupt must be immediately handled
+
+## Scheduling
+
+- Scheduling and the scheduler is the most important part of a multitasking-capable operating system
+- The scheduler determines which processes and threads should run on the processor, and in which order
+- Every time the processor goes idle, either due to a thread stalling or using it's allotted processing time, the scheduler must determine which thread should run next
+
+### Non-Preemptive Schedulers
+
+- Processes cannot be stopped or otherwise influenced by the scheduler once they have started
+- Every time that a thread enters the wait state, or uses all of it's allotted time, the scheduler will pick a different thread to run
+- Each process has full control over the processor until it stalls or is finished with it
+
+### Preemptive Schedulers
+
+- Processes can be stopped and controlled by the scheduler while running
+- If a new thread with a higher priority (based upon the scheduler's internal logic) enters the run queue, the current thread will be preempted, and moved to the wait queue
+- This allows the scheduler to be more efficient, and will almost always be more effective than a non-preemptive scheduler
+
+### Dispatcher
+
+- The dispatcher is another piece of system software which executes the commands of the scheduler
+- It is responsible for switching contexts, switching between kernel and user mode and returning to the execution point of a suspended thread
+
+### Scheduling Criteria
+
+- Processor Utilisation (Try to keep the processor running at all times)
+- Throughput (They to maximise the number of processes which complete execution in a given time)
+- Turnaround Time (Try to keep the average as low as possible)
+  - `Turnaround = Exit Time - Arrival Time`
+- Waiting Time (Try to keep the average as low as possible)
+ - `Waiting Time = Turnaround - Burst Time`
+- Response Time (Try to reduce the time between a thread entering the queue for the first time, and it being executed)
+
+## Scheduling Algorithms
+
+- First-Come, First-Served (FCFS)
+  - The process which requests the processor first gets it first
+  - Managed with a FIFO queue
+  - Once a process has control of the processor, it runs until completion or until it stalls
+- Shortest Job First (SJF)
+  - The shortest process always runs first
+  - This produces the shortest waiting time for a given set of processes
+  - The hardest part is determining how long each process will take to execute
+  - Can be non-preemptive or preemptive (if a shorter job enters the queue, start executing that)
+- Round-Robin (RR)
+  - Each process is given a set unit of processing time (time quantum or time slice)
+  - Once this time slice is used, the process is moved to the back of the queue
+  - Uses a circular queue for the run queue
+  - Sequential time slices are only allocated if there are no other processes in the queue
+  - Can be non-preemptive or preemptive (time slices are assigned as processes arrive, rather than each time the end of the queue is reached)
+- Priority Scheduling
+  - Each process is assigned a priority, typically lower number = higher priority
+  - The processor is allocated to the highest priority process, if multiple of the same priority exist, use FCFS
+  - Not necessarily faster than other algorithms, as its effectiveness is determined by the process priorities
+  - Can be non-preemptive or preemptive (if a higher priority process enters the queue, start executing it)
+  - This can cause starvation, where low priority processes are starved of processing time. This can be solved by "ageing" the priority of processes
+- Multilevel Queue
+  - There can be multiple run queues, which have different scheduling needs, e.g. a foreground and background queue
+  - Since these processes have different requirements, multiple scheduling algorithms can be used, but one queue usually has priority over the other
+  - Each process is permanently assigned to one of the queues
+- Multilevel Feedback Queue
+  - Similar to a multilevel queue, but processes can move between the different queues
+  - Processes may be moved between the queues if their requirements change, for example if a game is minimised while it is running
+  - Similarly to a priority scheduler, ageing may be needed if one of the queues is starved of processing time
